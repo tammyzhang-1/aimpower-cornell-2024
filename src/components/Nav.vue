@@ -48,7 +48,6 @@ const items = ref([
 
 <style scoped>
 .card {
-  background-color: var(--surface-card);
   width: 100%;
   border: none;
 }
@@ -58,6 +57,7 @@ const items = ref([
     border: none;
     display: flex;
     flex-direction: row;
+    background-color: #EBEDF1;
 }
 
 .search-avatar{
