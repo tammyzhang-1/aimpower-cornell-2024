@@ -24,11 +24,11 @@ import avatar from './icons/avatar.vue';
 
 <style scoped>
 .meeting-card {
-    height: 270px;
     border-radius: 11.25px;
     background: #F9F9F9;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     margin-bottom: 20px;
+    max-width: 740px;
 }
 
 .title {

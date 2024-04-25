@@ -58,6 +58,7 @@ import MeetingCard from '@/components/MeetingCard.vue';
   /* margin-left: 3vw; */
   border-radius: 11.5px;
   margin-top: 20px;
+  max-width: 359px;
 }
 
 .left-column {
@@ -69,18 +70,20 @@ import MeetingCard from '@/components/MeetingCard.vue';
 .right-column {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  column-gap: 4vh;
+  column-gap: 2vh;
 }
 
 .discussion-card {
   text-align: center;
   border-radius: 7.626px;
+  max-width: 359px;
   background: linear-gradient(180deg, #229AED 0%, #5C70E6 63.89%, rgba(163, 43, 141, 0.04) 135.44%, #B69DE0 135.46%, rgba(42, 176, 251, 0.00) 139.08%);
   /* margin-right: 3vw; */
 }
@@ -95,7 +98,7 @@ import MeetingCard from '@/components/MeetingCard.vue';
 }
 
 .card3 {
-  height: 510px;
+  max-width: 359px;
   flex-shrink: 0;
   border-radius: 11.25px;
   background: #A6B2ED;
