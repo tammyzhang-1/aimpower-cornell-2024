@@ -68,6 +68,7 @@ import MeetingCard from '@/components/MeetingCard.vue';
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  column-gap: 4vh;
 }
 .discussion-card{
   text-align: center;
