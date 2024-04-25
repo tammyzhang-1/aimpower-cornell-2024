@@ -1,5 +1,6 @@
 @import './base.css';
 @import 'primeicons/primeicons.css';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
 html, main, body, #app {
   height: 100%;
@@ -8,5 +9,6 @@ html, main, body, #app {
   padding: 0;
   display: contents;
   background-color: #EBEDF1;
+  font-family: "Source Sans 3", sans-serif;
 }
 
