@@ -28,10 +28,10 @@ import MeetingCard from '@/components/MeetingCard.vue';
     <div class="right-column">
       <Card class="discussion-card">
         <template #title>
-          <span style="font-size: 30px; color: #F9F6F6">You have an important voice</span>
+          <span class="discussion-title">You have an important voice</span>
         </template>
         <template #subtitle>
-          <span style="font-size: 20px; color: #FFFFFF">Use it with our meeting</span>
+          <span style="font-size: 20px; color: #FFFFFF; font-weight: 400;">Use it with our meeting</span>
         </template>
         <template #content>
           <Button label="Discussion Forum" class="w-100 button" />
@@ -78,6 +78,8 @@ import MeetingCard from '@/components/MeetingCard.vue';
   flex-direction: row;
   justify-content: space-between;
   column-gap: 2vh;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 .discussion-card {
@@ -85,7 +87,6 @@ import MeetingCard from '@/components/MeetingCard.vue';
   border-radius: 7.626px;
   max-width: 359px;
   background: linear-gradient(180deg, #229AED 0%, #5C70E6 63.89%, rgba(163, 43, 141, 0.04) 135.44%, #B69DE0 135.46%, rgba(42, 176, 251, 0.00) 139.08%);
-  /* margin-right: 3vw; */
 }
 
 
@@ -95,6 +96,16 @@ import MeetingCard from '@/components/MeetingCard.vue';
   background-color: #FFDD67;
   border-color: #000000;
   color: #000000;
+}
+
+.discussion-title{
+  color: #F9F6F6;
+  text-align: center;
+  font-size: 30.503px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24.402px; /* 80% */
+  letter-spacing: 0.763px;
 }
 
 .card3 {
