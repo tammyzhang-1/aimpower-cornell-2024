@@ -3,9 +3,26 @@
 </script>
 
 <template>
-  
+  <Card class="meeting-card">
+        <template #title>
+            <span class="title">AI Generative Study Team Meeting</span>
+        </template>
+        <template #subtitle>
+            <datetime v-model="date">9am - 10am</datetime>
+        </template>
+    </Card>
 </template>
 
 <style>
-
+.title{
+    overflow: hidden;
+}
+.meeting-card {
+    border-radius: 11.25px;
+    background: #F9F9F9;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+    max-width: 359px;
+    overflow: hidden;
+}
 </style>

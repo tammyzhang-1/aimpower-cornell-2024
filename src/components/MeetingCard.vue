@@ -52,7 +52,7 @@ import avatar from './icons/avatar.vue';
 .description {
     color: #000;
     /* Body Text/Source Serif Pro/16/Regular */
-    font-family: "Source Serif Pro";
+    font-family: serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
