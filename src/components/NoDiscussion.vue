@@ -3,10 +3,10 @@
 </script>
 
 <template>
-    <div id="no-discussion-container" class="test">
+    <div id="no-discussion-container">
         <div id="no-discussion">
-            <img id="no-discussion-img" src="../../public/no-discussion-img.png" />
-            <p>Dicussion has not started yet.</p>
+            <img id="no-discussion-img" src="/no-discussion-img.png" />
+            <p class="upper-margin-reduced-p">Dicussion has not started yet.</p>
             <p class="reduced-margin-p">Share your thoughts.</p>
             <p class="reduced-margin-p">Other meeting participants are eager to hear from you!</p>
         </div>
@@ -30,9 +30,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #F9F9F9;
-        border-radius: 11.25px;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
 
     #no-discussion p {
@@ -42,6 +39,10 @@
         font-style: normal;
         font-weight: 600;
         line-height: 120%;
+    }
+
+    .upper-margin-reduced-p {
+        margin-top: 0;
     }
     .reduced-margin-p {
         margin-top: 0;

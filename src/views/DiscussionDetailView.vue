@@ -40,6 +40,12 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #F9F9F9;
+    border-radius: 11.25px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 2em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
   }
 
 </style>

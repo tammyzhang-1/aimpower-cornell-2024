@@ -1,30 +1,53 @@
 <script setup>
-    
+    import Button from 'primevue/button';
 </script>
 
 <template>
-    <div id="meeting-info" class="test">
-        <h1>Test Meeting Title</h1>
-        <button id="create-post">Create a post</button>
+    <div id="meeting-info">
+        <h1 id="title">Test Meeting Title</h1>
+        <Button id="create-post" label="+ Create a Post" rounded />
         <p>Created today, at ... </p>
         <p>Meeting test info text</p>
     </div>
 </template>
 
 <style scoped>
-    h1 {
+    #title {
         margin: 0;
         padding: 0;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%;
     }
 
     #meeting-info {
         position: relative;
     }
 
+    #meeting-info p {
+        font-family: "Source Serif Pro", serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+    }
+
     #create-post {
         position: absolute;
-        top: 1em;
+        top: 0em;
         right: 1em;
+        background-color: #5F5CE6;
+        padding: 16px 27px 16px 28px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        color: #FFF;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
     }
     .test {
         border: solid thin gray;
