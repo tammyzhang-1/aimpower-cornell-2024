@@ -1,6 +1,5 @@
 <!-- View when user requests the discussion forum for a specific meeting -->
 <script setup>
-    import Nav from '../components/Nav.vue';
     import MeetingTab from '../components/MeetingTab.vue';
     import MeetingInfo from '../components/MeetingInfo.vue';
     import NoDiscussion from '../components/NoDiscussion.vue';
@@ -11,8 +10,6 @@
 </script>
 
 <template>
-  <Nav></Nav>
-
   <main>
     <aside id="meeting-tab-container">
       <!-- todo: generate a component for each entry in fixture -->
