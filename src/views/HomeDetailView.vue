@@ -21,16 +21,17 @@ import MeetingNotes from '@/components/MeetingNotes.vue'
 .content {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  column-gap: 2vh;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 .right-column {
   display: flex;
   flex-direction: column;
-  flex-grow: 3;
 }
 .left-column {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 </style>

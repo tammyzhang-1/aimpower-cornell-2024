@@ -1,45 +1,95 @@
 <script setup>
 import BackButton from '@/components/icons/BackButton.vue';
 import AvatarLady from 'primevue/avatar';
-import logo from './icons/logo.vue';
 import avatar from './icons/avatar.vue';
+import CalendarIcon from './icons/CalendarIcon.vue';
+import Dropdown from 'primevue/dropdown';
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+
 </script>
 
 
 <template>
     <Card class="meeting-card">
         <template #title>
-            <BackButton />
-            <span class="title">AI Generative Study Team Meeting</span>
+            <div class="meeting-title">
+                <div class="heading">
+                    <BackButton />
+                    <span class="title">AI Generative Study Team Meeting</span>
+                </div>
+                <div>
+                    <router-link v-slot="{ href, navigate }" to="/discussion" custom>
+                        <Button :href="href" label="Discussion Forum" class="w-100 button" @click="navigate" />
+                    </router-link>
+                </div>
+            </div>
         </template>
         <template #subtitle>
-            <div class="search-avatar">
-                <AvatarLady image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle"
-                    style="margin-right: 8px" />
-                <span class="ml-2">rmt223</span>
-                <div class="CalIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
-                    <path
-                        d="M21.375 4.5H5.625C4.38236 4.5 3.375 5.50736 3.375 6.75V22.5C3.375 23.7426 4.38236 24.75 5.625 24.75H21.375C22.6176 24.75 23.625 23.7426 23.625 22.5V6.75C23.625 5.50736 22.6176 4.5 21.375 4.5Z"
-                        stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M18 2.25V6.75" stroke="black" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M9 2.25V6.75" stroke="black" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M3.375 11.25H23.625" stroke="black" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
+            <div class="user-info" style="column-gap: 30px;">
+                <div class="user">
+                    <AvatarLady image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle"
+                        style="margin-right: 8px" />
+                    <span class="ml-2" style="font-size: 15px">rmt223</span>
                 </div>
-                <datetime>9am - 10am</datetime>
+                <div class="date">
+                    <CalendarIcon />
+                    <date>April 3 2024</date>
+                    <datetime>9am - 10am</datetime>
+                </div>
+                <div class="users">
+                    <UsersIcon />
+                    <span>Shared with XXX</span>
+                </div>
             </div>
         </template>
         <template #content>
-            <avatar />
-            <span class="participants">Sam Samuels, Amy Winehouse, Britney Spare, and 3 more.</span> <br>
-            <span class="description">Roxanne Tanenbaum asked the panelists about their biggest challenges and
-                frustrations in user research.
-                Sam struggled with getting users to open up, while Amy discussed the difficulties of conducting research
-                in a remote setting.</span>
+            <div>
+                <span style="font-size: 20px; 
+                font-style: normal; 
+                font-weight: 600;
+                line-height: normal;">Summary</span>
+                <p class="description">Roxanne Tanenbaum asked the panelists about their biggest challenges
+                    and frustrations in user research. Sam struggled with getting users to open up,
+                    while Amy discussed the difficulties of conducting research in a remote setting.</p>
+            </div>
+            <div class="transcript-container">
+                <span style="font-size: 20px; 
+                font-style: normal; 
+                font-weight: 600;
+                line-height: normal;">Transcript</span>
+                <div class="transcript">
+                    <div class="user-info">
+                        <avatar />
+                        <span style="font-weight: 600;">Roxanne</span>
+                        <datetime style="font-weight: 400; color:#677E92">9:00am - 9:02am</datetime>
+                    </div>
+                    <p class="description" style="margin: 0;">One you have a milestone to add to the Google Docs and
+                        in this case okay okay go user resources as a user research ma Hapa
+                        hapa no no user research user user Singapore.</p>
+                </div>
+                <div class="transcript">
+                    <div class="user-info">
+                        <avatar />
+                        <span style="font-weight: 600;">Amy</span>
+                        <datetime style="font-weight: 400; color:#677E92">9:02am</datetime>
+                    </div>
+                    <p class="description" style="margin: 0;">Ok Cool.</p>
+                </div>
+                <div class="card flex justify-content-center" style="margin-top: 20px;">
+                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name"
+                        placeholder="Select a post from discussion forum ..." class="w-full md:w-14rem" />
+                </div>
+            </div>
+            <br>
         </template>
     </Card>
 </template>
@@ -53,6 +103,13 @@ import avatar from './icons/avatar.vue';
     max-width: 1000px;
 }
 
+.users {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 12px;
+}
+
 .title {
     color: #000;
     font-size: 24px;
@@ -60,5 +117,76 @@ import avatar from './icons/avatar.vue';
     font-weight: 600;
     line-height: 120%;
     /* 28.8px */
+}
+
+.meeting-title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.transcript {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    row-gap: 8px;
+    margin-top: 20px;
+}
+
+.user-info {
+    color: #000;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 10px;
+
+}
+
+.pi-users {
+    font-size: 15px;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+}
+
+.button {
+    display: flex;
+    width: 202px;
+    height: 48px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 48px;
+    background: #6B4EFF;
+    border: none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 10px;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 10px;
 }
 </style>
