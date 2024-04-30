@@ -1,5 +1,5 @@
 {
-    "meetings": {
+    "meetings": [{
         "meeting-1": {
             "id": "04-19-2024-meeting-1",
             "datetime-start": 1713531600,
@@ -40,7 +40,7 @@
                 }
             }
         } 
-    },
+    }],
 
     "users": {
         "user-1": {
