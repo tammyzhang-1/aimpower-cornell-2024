@@ -1,6 +1,7 @@
 <script setup>
 import Calendar from '@/components/Calendar.vue';
 import MeetingCard from '@/components/MeetingCard.vue';
+import Card from 'primevue/card';
 </script>
 
 <template>
@@ -21,7 +22,9 @@ import MeetingCard from '@/components/MeetingCard.vue';
       </Card>
     </div>
     <div class="center-column">
-      <MeetingCard />
+      <router-link to="/meeting_key" v-slot="{ href, navigate }" custom>
+        <MeetingCard @click="navigate" href="/meeting_key" />
+      </router-link>
       <MeetingCard />
       <MeetingCard />
     </div>
@@ -34,7 +37,9 @@ import MeetingCard from '@/components/MeetingCard.vue';
           <span style="font-size: 20px; color: #FFFFFF; font-weight: 400;">Use it with our meeting</span>
         </template>
         <template #content>
-          <Button label="Discussion Forum" class="w-100 button" />
+          <router-link v-slot="{ href, navigate }" to="/discussion" custom>
+            <Button :href="href" label="Discussion Forum" class="w-100 button" @click="navigate" />
+          </router-link>
         </template>
       </Card>
       <Card class="card3">
@@ -98,13 +103,14 @@ import MeetingCard from '@/components/MeetingCard.vue';
   color: #000000;
 }
 
-.discussion-title{
+.discussion-title {
   color: #F9F6F6;
   text-align: center;
   font-size: 30.503px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24.402px; /* 80% */
+  line-height: 24.402px;
+  /* 80% */
   letter-spacing: 0.763px;
 }
 

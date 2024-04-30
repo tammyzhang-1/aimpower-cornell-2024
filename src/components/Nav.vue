@@ -6,13 +6,16 @@ import { ref } from "vue";
 
 const items = ref([
     {
-        label: 'Home'
+        label: 'Home', 
+        path : '/'
     },
     {
-        label: 'Discussion Forum'
+        label: 'Discussion Forum', 
+        path : '/discussion'
     },
     {
-        label: 'About Us'
+        label: 'About Us', 
+        path : '/about'
     }
 ]);
 </script>
@@ -26,7 +29,9 @@ const items = ref([
             <template #item="{ item, props, hasSubmenu, root }">
                 <a v-ripple class="flex align-items-center nav-item" v-bind="props.action">
                     <span :class="item.icon" />
-                    <span class="ml-2">{{ item.label }}</span>
+                    <router-link v-if="item.path" v-slot="{ href, navigate }" :to="item.path" custom>
+                        <span :href="href" class="ml-2" @click="navigate">{{ item.label }}</span>
+                    </router-link>
                     <Badge v-if="item.badge" :class="{ 'ml-auto': !root, 'ml-2': root }" :value="item.badge" />
                     <span v-if="item.shortcut"
                         class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{

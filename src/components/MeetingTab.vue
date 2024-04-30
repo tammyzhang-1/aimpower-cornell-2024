@@ -1,5 +1,4 @@
 <script setup>
-    
 </script>
 
 <template>
@@ -9,6 +8,7 @@
         </template>
         <template #subtitle>
             <datetime v-model="date">9am - 10am</datetime>
+            <datetime style="margin-left: 8px">Today</datetime> 
         </template>
     </Card>
 </template>
