@@ -5,7 +5,6 @@
     import NoDiscussion from '../components/NoDiscussion.vue';
     import CreateDiscussion from '../components/CreateDiscussion.vue';
     import Post from '../components/Post.vue';
-    import Reply from '../components/Reply.vue';
 </script>
 
 <template>
@@ -17,7 +16,8 @@
     <div id="main-post-area">
       <MeetingInfo></MeetingInfo>
       <!-- <NoDiscussion></NoDiscussion> -->
-      <CreateDiscussion></CreateDiscussion>
+      <!-- <CreateDiscussion></CreateDiscussion> -->
+      <Post></Post>
     </div>
   </main>
 </template>
