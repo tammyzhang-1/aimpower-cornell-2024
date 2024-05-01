@@ -10,10 +10,14 @@
 <script>
 // console.log(fixtures)
 export default {
-    created() {
-      console.log(this.fixtures.meetings[this.$route.params.discussion_key])
+  created() {
+    console.log(this.fixtures.meetings)
+    console.log(this.fixtures.meetings[this.$route.params.discussion_key])
+  },
+  computed: {
+    allMeetings() {
+      return this.fixtures.meetings;
     },
-    computed: {
     meeting() {
       return this.fixtures.meetings[this.$route.params.discussion_key];
     }
@@ -24,14 +28,17 @@ export default {
 <template>
   <main>
     <aside id="meeting-tab-container">
-      <!-- todo: generate a component for each entry in fixture -->
-      <MeetingTab></MeetingTab> 
+      <MeetingTab v-for="meeting in allMeetings"></MeetingTab> 
     </aside>
     <div id="main-post-area">
       <MeetingInfo></MeetingInfo>
-      <!-- <NoDiscussion></NoDiscussion> -->
+      <NoDiscussion v-if="!Object.keys(meeting.posts).length"></NoDiscussion>
       <!-- <CreateDiscussion></CreateDiscussion> -->
-      <Post></Post>
+      <template v-for="post in meeting.posts['main-posts']">
+        <Post 
+          :postInfo="post">
+        </Post>
+    </template>
     </div>
   </main>
 </template>
@@ -51,7 +58,8 @@ export default {
 
   #main-post-area {
     width: 80%;
-    height: 100%;
+    min-height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     background-color: #F9F9F9;
