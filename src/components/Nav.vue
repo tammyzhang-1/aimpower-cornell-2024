@@ -15,7 +15,7 @@ const items = ref([
     },
     {
         label: 'About Us', 
-        path : '/about'
+        path : '/about-us'
     }
 ]);
 </script>

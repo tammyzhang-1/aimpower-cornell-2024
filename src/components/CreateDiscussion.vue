@@ -5,6 +5,8 @@
     import { ref } from "vue";
 
     const value = ref('');
+
+    const emit = defineEmits(['cancel'])
 </script>
 
 <template>
@@ -12,7 +14,7 @@
         <Button id="add-hear-my-voice-flair" label="+ Hear My Voice" rounded />
         <Editor v-model="value" editorStyle="height: 300px" />
         <div id="post-button-container">
-            <Button id="cancel-post" label="Cancel" rounded />
+            <Button @click="emit('cancel')" id="cancel-post" label="Cancel" rounded />
             <Button id="submit-post" class="inactive-post-button" label="Post" rounded />
         </div>
     </div>

@@ -2,10 +2,13 @@
     import Avatar from 'primevue/avatar';
     import Button from 'primevue/button';
     import Reply from './Reply.vue';
+    import { ref } from 'vue';
 
     const props = defineProps({
         postInfo: Object
     })
+
+    const liked = ref(false);
 
     console.log(props.postInfo)
 </script>
@@ -34,7 +37,9 @@
             <h2 id="title">{{ postInfo['post-title'] }}</h2>
             <p class="post-content">{{ postInfo.content }}</p>
             <div id="post-reactions">
-                <Button id="love-react" class="inactive post-reaction" icon="pi pi-heart" label="0" />
+                <Button id="love-react" class="inactive post-reaction" 
+                    @click="liked = !liked"
+                    :icon="liked ? 'pi pi-heart-fill' : 'pi pi-heart'" :label="liked ? '1' : '0'" />
                 <Button id="reply-react" class="post-reaction" icon="pi pi-comment" label="0" />
             </div>
         </div>

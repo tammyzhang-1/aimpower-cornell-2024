@@ -8,11 +8,14 @@
     import { ref } from 'vue';
     import Button from 'primevue/button';
 
-    const state = ref("home")
+    const state = ref("home");
 
     function setEdit() {
       state.value = "edit";
-      console.log(state.value)
+    }
+
+    function setHome() {
+      state.value = "home";
     }
 </script>
 
@@ -38,13 +41,13 @@ export default {
   <main>
     <aside id="meeting-tab-container">
       <template v-for="meeting in allMeetings">
-        <MeetingTab :meetingTabInfo="meeting.id"></MeetingTab>
+        <MeetingTab :class="meeting.id == this.$route.params.discussion_key ? 'active-tab' : 'inactive-tab'" @click="setHome" :meetingTabInfo="meeting.id"></MeetingTab>
       </template>
     </aside>
     <div id="main-post-area">
       <Button v-if="state != 'edit'" id="create-post" label="+ Create a Post" rounded @click="setEdit" />
       <MeetingInfo></MeetingInfo>
-      <CreateDiscussion v-if="state == 'edit'"></CreateDiscussion>
+      <CreateDiscussion @cancel="setHome" v-if="state == 'edit'"></CreateDiscussion>
       <NoDiscussion v-if="!Object.keys(meeting.posts).length && state != 'edit'"></NoDiscussion>
       <template v-for="post in meeting.posts['main-posts']">
         <Post 
@@ -99,6 +102,10 @@ export default {
         font-weight: 600;
         line-height: 16px;
         z-index: 2;
+    }
+
+    .active-tab {
+      background-color: #e0d6f9;
     }
 
 </style>
