@@ -1,9 +1,28 @@
 {
     "meetings": [{
         "meeting-1": {
+            "id": "04-30-2024-meeting-1",
+            "datetime-start": 1714510800,
+            "datetime-end": 1714514400,
+            "time-start": "5:00 PM",
+            "time-end": "6:00 PM",
+            "participants": [
+                "user-1",
+                "user-4",
+                "user-5",
+                "user-6"
+            ],
+            "title": "Group C Internal Meeting",
+            "summary": "Group C's biannual meeting. Today's agenda included presentation preparation for next week's conference, as well as a discussion on the new company policies."
+        }
+    },
+    {
+        "meeting-2": {
             "id": "04-19-2024-meeting-1",
             "datetime-start": 1713531600,
             "datetime-end": 1713535200,
+            "time-start": "9:00 AM",
+            "time-end": "10:00 AM",
             "participants": [
                 "user-1",
                 "user-2",
@@ -18,6 +37,7 @@
                 "post-id": "04-19-2024-post-1",
                 "post-author": "user-1",
                 "post-datetime": 1713535800,
+                "post-time": "10:10 AM",
                 "post-title": "My Thoughts On The Brand Color",
                 "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
                 "reactions": ["love"]
@@ -28,6 +48,7 @@
                     "reply-author": "user-1",
                     "reply-to": "04-19-2024-post-1",
                     "reply-datetime": 1713536400,
+                    "reply-time": "10:20 AM",
                     "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
                     "reactions": ["like"]
                 },
@@ -36,6 +57,7 @@
                     "reply-to": "04-19-2024-reply-1",
                     "reply-author": "user-2",
                     "reply-datetime": 1713536580,
+                    "reply-time": "10:23 AM",
                     "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
                 }
             }
