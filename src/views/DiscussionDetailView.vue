@@ -5,10 +5,16 @@
     import NoDiscussion from '../components/NoDiscussion.vue';
     import CreateDiscussion from '../components/CreateDiscussion.vue';
     import Post from '../components/Post.vue';
+    import CreateReply from '../components/CreateReply.vue';
+
     import { ref } from 'vue';
     import Button from 'primevue/button';
+    import { useRoute } from 'vue-router'
+
+    const route = useRoute();
 
     const state = ref("home");
+    const newPosts = ref([]);
 
     function setEdit() {
       state.value = "edit";
@@ -16,6 +22,44 @@
 
     function setHome() {
       state.value = "home";
+    }
+
+    function createPost(content) {
+      state.value = "home";
+      
+      newPosts.value.push({
+        "meeting": route.params.discussion_key,
+        "flaired": content[1],
+        "content": content[0],
+        "post-author": "user-1",
+        "post-datetime": Date.now(),
+        "post-id": timestampToDateString(Date.now()) + "-post-" + newPosts.value.length,
+        "post-time": timestampToTimeString(Date.now()),
+        "post-title": "test",
+        "reactions": [],
+        "replies": {}
+      })
+      console.log(newPosts.value)
+    }
+
+    function timestampToTimeString(timestamp) {
+      const date = new Date(timestamp);
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      const formattedHours = hours % 12 || 12;
+      const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+      const period = hours < 12 ? 'am' : 'pm';
+      const timeString = `${formattedHours}:${formattedMinutes} ${period}`;
+      return timeString;
+    }
+
+    function timestampToDateString(timestamp) {
+      const date = new Date(timestamp);
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
+      const day = date.getDate().toString().padStart(2, '0');
+      const dateString = `${month}-${day}-${year}`;
+      return dateString;
     }
 </script>
 
@@ -41,19 +85,29 @@ export default {
   <main>
     <aside id="meeting-tab-container">
       <template v-for="meeting in allMeetings">
-        <MeetingTab :class="meeting.id == this.$route.params.discussion_key ? 'active-tab' : 'inactive-tab'" @click="setHome" :meetingTabInfo="meeting.id"></MeetingTab>
+        <MeetingTab :class="meeting.id == $route.params.discussion_key ? 'active-tab' : 'inactive-tab'" @click="setHome" :meetingTabInfo="meeting.id"></MeetingTab>
       </template>
     </aside>
     <div id="main-post-area">
       <Button v-if="state != 'edit'" id="create-post" label="+ Create a Post" rounded @click="setEdit" />
       <MeetingInfo></MeetingInfo>
-      <CreateDiscussion @cancel="setHome" v-if="state == 'edit'"></CreateDiscussion>
-      <NoDiscussion v-if="!Object.keys(meeting.posts).length && state != 'edit'"></NoDiscussion>
+      <CreateDiscussion 
+        @cancel="setHome" 
+        @submit="(content) =>createPost(content)"
+        v-if="state == 'edit'">
+      </CreateDiscussion>
+      <NoDiscussion v-if="!Object.keys(meeting.posts).length && !Object.keys(newPosts.filter(post => post.meeting == $route.params.discussion_key)).length && state != 'edit'"></NoDiscussion>
+      <template v-for="post in newPosts.filter(post => post.meeting == $route.params.discussion_key).slice().reverse()">
+        <Post 
+          :postInfo="post">
+        </Post>
+    </template>
       <template v-for="post in meeting.posts['main-posts']">
         <Post 
           :postInfo="post">
         </Post>
     </template>
+    <!-- <CreateReply></CreateReply> -->
     </div>
   </main>
 </template>
@@ -105,7 +159,7 @@ export default {
     }
 
     .active-tab {
-      background-color: #e0d6f9;
+      background-color: #E2DCFF;
     }
 
 </style>

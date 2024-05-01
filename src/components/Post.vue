@@ -2,15 +2,16 @@
     import Avatar from 'primevue/avatar';
     import Button from 'primevue/button';
     import Reply from './Reply.vue';
+    import HearMyVoiceFlair from './icons/HearMyVoiceFlair.vue';
     import { ref } from 'vue';
 
     const props = defineProps({
         postInfo: Object
-    })
+    });
+
+    console.log(props.postInfo.flaired)
 
     const liked = ref(false);
-
-    console.log(props.postInfo)
 </script>
 
 <script>
@@ -33,9 +34,13 @@
                 <span id="poster-username">{{ getUserInfo(postInfo['post-author']) }}</span>
                 <span class="divider">·</span>
                 <span id="post-timestamp">{{ postInfo['post-time'] }}</span>
+                <HearMyVoiceFlair v-if="postInfo.flaired" />
             </div>
-            <h2 id="title">{{ postInfo['post-title'] }}</h2>
-            <p class="post-content">{{ postInfo.content }}</p>
+            <span id="post-banner">
+                <h2 id="title">{{ postInfo['post-title'] }}</h2>
+                
+            </span>
+            <p class="post-content" v-html=" postInfo.content "></p>
             <div id="post-reactions">
                 <Button id="love-react" class="inactive post-reaction" 
                     @click="liked = !liked"
@@ -60,6 +65,11 @@
         margin-bottom: 1em;
     }
 
+    #post-banner {
+        display: flex;
+        gap: 0.5em;
+    }
+
     #more-post-actions {
         position: absolute;
         top: 0em;
@@ -75,6 +85,7 @@
     #post-info {
         display: flex;
         gap: 0.5em;
+        align-items: center;
     }
 
     .profile-img {
@@ -138,5 +149,4 @@
         color: black;
         border: none;
     }
-
 </style>

@@ -1,5 +1,15 @@
 <script setup>
-    
+    function timestampToFormattedDate(timestamp) {
+        const date = new Date(timestamp * 1000);
+        const options = { 
+            weekday: 'long', 
+            month: 'long',  
+            day: 'numeric', 
+            year: 'numeric' 
+        };
+        const formattedDate = date.toLocaleDateString('en-US', options);
+        return formattedDate;
+    }
 </script>
 
 <script>
@@ -8,10 +18,10 @@ export default {
     //   console.log(this.fixtures.meetings[this.$route.params.discussion_key])
     },
     computed: {
-    meeting() {
-      return this.fixtures.meetings[this.$route.params.discussion_key];
+        meeting() {
+            return this.fixtures.meetings[this.$route.params.discussion_key];
+        }
     }
-  }
 }
 </script>
 
@@ -19,7 +29,7 @@ export default {
     <div id="meeting-info">
         <h1 id="title">{{ meeting.title }}</h1>
        
-        <p>Created today, at {{ meeting["time-forum-started"] }}</p>
+        <p>Created {{ timestampToFormattedDate(meeting["datetime-end"]) }}, at {{ meeting["time-forum-started"] }}</p>
         <p>{{ meeting.summary }}</p>
     </div>
 </template>
