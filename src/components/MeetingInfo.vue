@@ -2,12 +2,25 @@
     import Button from 'primevue/button';
 </script>
 
+<script>
+export default {
+    created() {
+    //   console.log(this.fixtures.meetings[this.$route.params.discussion_key])
+    },
+    computed: {
+    meeting() {
+      return this.fixtures.meetings[this.$route.params.discussion_key];
+    }
+  }
+}
+</script>
+
 <template>
     <div id="meeting-info">
-        <h1 id="title">Test Meeting Title</h1>
+        <h1 id="title">{{ meeting.title }}</h1>
         <Button id="create-post" label="+ Create a Post" rounded />
-        <p>Created today, at ... </p>
-        <p>Meeting test info text</p>
+        <p>Created today, at {{ meeting["time-forum-started"] }}</p>
+        <p>{{ meeting.summary }}</p>
     </div>
 </template>
 

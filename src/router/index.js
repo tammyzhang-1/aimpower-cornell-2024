@@ -24,7 +24,7 @@ const router = createRouter({
       component: DiscussionView
     },
     {
-      path: '/discussion/discussion_key', //todo: make dynamic
+      path: '/discussion/:discussion_key', //todo: make dynamic
       name: 'discussion-detail',
       component: DiscussionDetailView
     },

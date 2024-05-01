@@ -7,6 +7,20 @@
     import Post from '../components/Post.vue';
 </script>
 
+<script>
+// console.log(fixtures)
+export default {
+    created() {
+      console.log(this.fixtures.meetings[this.$route.params.discussion_key])
+    },
+    computed: {
+    meeting() {
+      return this.fixtures.meetings[this.$route.params.discussion_key];
+    }
+  }
+}
+</script>
+
 <template>
   <main>
     <aside id="meeting-tab-container">
