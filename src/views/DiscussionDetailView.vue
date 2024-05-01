@@ -37,7 +37,9 @@ export default {
 <template>
   <main>
     <aside id="meeting-tab-container">
-      <MeetingTab v-for="meeting in allMeetings"></MeetingTab> 
+      <template v-for="meeting in allMeetings">
+        <MeetingTab :meetingTabInfo="meeting.id"></MeetingTab>
+      </template>
     </aside>
     <div id="main-post-area">
       <Button v-if="state != 'edit'" id="create-post" label="+ Create a Post" rounded @click="setEdit" />

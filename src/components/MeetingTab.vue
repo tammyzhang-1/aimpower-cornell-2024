@@ -1,8 +1,21 @@
 <script setup>
+    const props = defineProps({
+        meetingTabInfo: Object
+    })
+</script>
+
+<script>
+  export default {
+  methods: {
+    directTo(page) {
+        this.$router.push("/discussion/" + page);
+    }
+  }
+}
 </script>
 
 <template>
-  <Card class="meeting-card">
+  <Card class="meeting-card" @click= "directTo(meetingTabInfo)">
         <template #title>
             <span class="title">AI Generative Study Team Meeting</span>
         </template>
@@ -24,5 +37,9 @@
     margin-bottom: 20px;
     max-width: 359px;
     overflow: hidden;
+}
+
+.meeting-card:hover {
+    cursor: pointer;
 }
 </style>
