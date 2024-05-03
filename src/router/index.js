@@ -14,7 +14,7 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/meeting_key', //todo: make dynamic
+      path: '/meeting/:meeting_key', //todo: make dynamic
       name: 'home-detail',
       component: HomeDetailView
     },

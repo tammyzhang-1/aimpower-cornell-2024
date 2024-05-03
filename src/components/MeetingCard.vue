@@ -5,9 +5,8 @@ defineProps({
   subtitle: String,
   participants: Array,
   description: String,
-  img: String,
-  author: String, 
-  date: Date, 
+  starttime: String, 
+  endtime: String,
   meetingCardInfo: Object
 })
 function getParticipants(participants) {
@@ -16,17 +15,17 @@ function getParticipants(participants) {
 }
 function directTo(page) {
         this.$router.push("/discussion/" + page);
-    }
+}
 </script>
 
 <template>
-    <Card class="meeting-card" @click= "directTo(meetingCardInfo)">
+   <Card class="meeting-card">  <!-- @click= "directTo(meetingCardInfo)" -->
         <template #title>
             <span class="title">{{title}}</span>
             <i class="pi pi-bookmark ml-auto" style="margin-left: 8px;"></i>
         </template>
         <template #subtitle>
-            <datetime>{{date}}</datetime>
+            <datetime>{{starttime}} - {{ endtime }}</datetime>
         </template>
         <template #content>
         <div class="participant-avatar">

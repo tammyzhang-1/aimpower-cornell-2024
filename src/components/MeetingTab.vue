@@ -1,7 +1,13 @@
 <script setup>
-    const props = defineProps({
-        meetingTabInfo: Object
-    })
+defineProps({
+    title: String,
+  subtitle: String,
+  participants: Array,
+  description: String,
+  starttime: String, 
+  endtime: String,
+  meetingTabInfo: Object
+}) 
 </script>
 
 <script>
@@ -17,10 +23,10 @@
 <template>
   <Card class="meeting-card" @click= "directTo(meetingTabInfo)">
         <template #title>
-            <span class="title">AI Generative Study Team Meeting</span>
+            <span class="title">{{title}}</span>
         </template>
         <template #subtitle>
-            <datetime v-model="date">9am - 10am</datetime>
+            <datetime v-model="date">{{starttime}} - {{ endtime }}</datetime>
             <datetime style="margin-left: 8px">Today</datetime> 
         </template>
     </Card>
@@ -34,7 +40,6 @@
     border-radius: 11.25px;
     background: #F9F9F9;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-bottom: 20px;
     max-width: 359px;
     overflow: hidden;
 }

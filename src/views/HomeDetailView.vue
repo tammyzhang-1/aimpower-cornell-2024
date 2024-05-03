@@ -6,16 +6,16 @@ import MeetingNotes from '@/components/MeetingNotes.vue'
 <template>
   <div class="content">
     <div class="left-column">
-      <MeetingTab />
-      <MeetingTab />
-      <MeetingTab />
-      <MeetingTab />
+      <div v-for="(fixture, id) in fixtures.meetings">
+            <MeetingTab :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :participants="fixture.participants"
+              :description="fixture.summary" @click="directTo(id)" href="/meeting_key" />\
+        </div>
     </div>
     <div class="right-column">
       <MeetingNotes />
     </div>
   </div>
-</template>
+</template>\\ \
 
 <style scoped>
 .content {

@@ -1,9 +1,14 @@
 <script setup>
 import Calendar from '@/components/Calendar.vue';
 import MeetingCard from '@/components/MeetingCard.vue';
-import { useRoute } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
+const router = useRouter();
+const route = useRoute();
 import Card from 'primevue/card';
 
+function directTo(page) {
+      router.push("/meeting/" + page);
+}
 </script>
 
 <template>
@@ -24,14 +29,11 @@ import Card from 'primevue/card';
       </Card>
     </div>
     <div class="center-column">
-    <div v-for="(subf, id) in fixtures.meetings">
-    <div v-for="(fixture, id2) in subf">
-      <router-link to="/meeting_key" v-slot="{ href, navigate }" custom>
-        <MeetingCard :title="fixture.title" :date="fixture.datetime-start" :participants="fixture.participants" :description="fixture.summary" @click="navigate" href="/meeting_key" />
-      </router-link>
-    </div>
-    </div>
-    </div>
+      <div v-for="(fixture, id) in fixtures.meetings">
+            <MeetingCard :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :participants="fixture.participants"
+              :description="fixture.summary" @click="directTo(id)" href="/meeting_key" />\
+        </div>
+      </div>
     <div class="right-column">
       <Card class="discussion-card">
         <template #title>

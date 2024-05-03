@@ -82,8 +82,12 @@
             "id": "04-20-2024-meeting-2",
             "datetime-start": 1713531600,
             "datetime-end": 1713535200,
+            "date": "Saturday, April 20",
+            "time-start": "4:00 pm",
+            "time-end": "6:00 pm",
+            "time-forum-started": "6:23 pm",
             "participants": [
-                "Sam Carla",
+                "Sam Methuselah",
                 "Abhiram Pulipati",
                 "Harsh Siriah",
                 "Joe Sunil",
@@ -95,7 +99,7 @@
             "posts": {
                 "main-posts": {
                     "main-post-1": {
-                        "post-id": "04-19-2024-post-1",
+                        "post-id": "04-20-2024-post-1",
                         "post-author": "user-1",
                         "post-datetime": 1713535800,
                         "post-time": "10:10 am",
@@ -105,10 +109,10 @@
                             "love"
                         ],
                         "replies": {
-                            "04-19-2024-reply-1": {
-                                "reply-id": "04-19-2024-reply-1",
+                            "04-20-2024-reply-1": {
+                                "reply-id": "04-20-2024-reply-1",
                                 "reply-author": "user-1",
-                                "reply-to": "04-19-2024-post-1",
+                                "reply-to": "04-20-2024-post-1",
                                 "reply-level": 1,
                                 "reply-datetime": 1713536400,
                                 "reply-time": "10:20 am",
@@ -117,9 +121,9 @@
                                     "like"
                                 ]
                             },
-                            "04-19-2024-reply-2": {
-                                "reply-id": "04-19-2024-reply-2",
-                                "reply-to": "04-19-2024-reply-1",
+                            "04-20-2024-reply-2": {
+                                "reply-id": "04-20-2024-reply-2",
+                                "reply-to": "04-20-2024-reply-1",
                                 "reply-level": 2,
                                 "reply-author": "user-2",
                                 "reply-datetime": 1713536580,
@@ -130,10 +134,10 @@
                     }
                 },
                 "replies": {
-                    "04-19-2024-reply-1": {
-                        "reply-id": "04-19-2024-reply-1",
+                    "04-20-2024-reply-1": {
+                        "reply-id": "04-20-2024-reply-1",
                         "reply-author": "user-1",
-                        "reply-to": "04-19-2024-post-1",
+                        "reply-to": "04-20-2024-post-1",
                         "reply-datetime": 1713536400,
                         "reply-time": "10:20 am",
                         "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
@@ -141,9 +145,9 @@
                             "like"
                         ]
                     },
-                    "04-19-2024-reply-2": {
-                        "reply-id": "04-19-2024-reply-2",
-                        "reply-to": "04-19-2024-reply-1",
+                    "04-20-2024-reply-2": {
+                        "reply-id": "04-20-2024-reply-2",
+                        "reply-to": "04-20-2024-reply-1",
                         "reply-author": "user-2",
                         "reply-datetime": 1713536580,
                         "reply-time": "10:23 am",
@@ -156,6 +160,10 @@
             "id": "04-21-2024-meeting-3",
             "datetime-start": 1713531600,
             "datetime-end": 1713535200,
+            "date": "Sunday, April 20",
+            "time-start": "9:00 am",
+            "time-end": "10:00 am",
+            "time-forum-started": "10:10 am",
             "participants": [
                 "Bill Sanders",
                 "Reese Witherspoon",
@@ -170,7 +178,7 @@
             "posts": {
                 "main-posts": {
                     "main-post-1": {
-                        "post-id": "04-19-2024-post-1",
+                        "post-id": "04-21-2024-post-1",
                         "post-author": "user-1",
                         "post-datetime": 1713535800,
                         "post-time": "10:10 am",
@@ -180,10 +188,10 @@
                             "love"
                         ],
                         "replies": {
-                            "04-19-2024-reply-1": {
-                                "reply-id": "04-19-2024-reply-1",
+                            "04-21-2024-reply-1": {
+                                "reply-id": "04-21-2024-reply-1",
                                 "reply-author": "user-1",
-                                "reply-to": "04-19-2024-post-1",
+                                "reply-to": "04-21-2024-post-1",
                                 "reply-level": 1,
                                 "reply-datetime": 1713536400,
                                 "reply-time": "10:20 am",
@@ -192,9 +200,9 @@
                                     "like"
                                 ]
                             },
-                            "04-19-2024-reply-2": {
-                                "reply-id": "04-19-2024-reply-2",
-                                "reply-to": "04-19-2024-reply-1",
+                            "04-21-2024-reply-2": {
+                                "reply-id": "04-21-2024-reply-2",
+                                "reply-to": "04-21-2024-reply-1",
                                 "reply-level": 2,
                                 "reply-author": "user-2",
                                 "reply-datetime": 1713536580,
@@ -205,10 +213,10 @@
                     }
                 },
                 "replies": {
-                    "04-19-2024-reply-1": {
-                        "reply-id": "04-19-2024-reply-1",
+                    "04-21-2024-reply-1": {
+                        "reply-id": "04-21-2024-reply-1",
                         "reply-author": "user-1",
-                        "reply-to": "04-19-2024-post-1",
+                        "reply-to": "04-21-2024-post-1",
                         "reply-datetime": 1713536400,
                         "reply-time": "10:20 am",
                         "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
@@ -216,9 +224,9 @@
                             "like"
                         ]
                     },
-                    "04-19-2024-reply-2": {
-                        "reply-id": "04-19-2024-reply-2",
-                        "reply-to": "04-19-2024-reply-1",
+                    "04-21-2024-reply-2": {
+                        "reply-id": "04-21-2024-reply-2",
+                        "reply-to": "04-21-2024-reply-1",
                         "reply-author": "user-2",
                         "reply-datetime": 1713536580,
                         "reply-time": "10:23 am",
