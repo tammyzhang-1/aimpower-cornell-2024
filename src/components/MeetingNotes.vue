@@ -6,7 +6,7 @@ import CalendarIcon from './icons/CalendarIcon.vue';
 import Dropdown from 'primevue/dropdown';
 import { ref } from "vue";
 
-const selectedCity = ref();
+const selectedCity = ref('');
 const cities = ref([
     { name: 'New York', code: 'NY' },
     { name: 'Rome', code: 'RM' },
@@ -85,13 +85,12 @@ const cities = ref([
                     <p class="description" style="margin: 0;">Ok Cool.</p>
                 </div>
                 <div class="card flex justify-content-center" style="margin-top: 20px;">
-                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name"
+                <Dropdown v-model="selectedCity" :options="cities" optionLabel="name"
                         placeholder="Select a post from discussion forum ..." class="w-full md:w-14rem" />
                 </div>
             </div>
-            <br>
         </template>
-    </Card>
+</Card>
 </template>
 
 <style scoped>

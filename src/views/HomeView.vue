@@ -1,7 +1,9 @@
 <script setup>
 import Calendar from '@/components/Calendar.vue';
 import MeetingCard from '@/components/MeetingCard.vue';
+import { useRoute } from 'vue-router';
 import Card from 'primevue/card';
+
 </script>
 
 <template>
@@ -22,11 +24,13 @@ import Card from 'primevue/card';
       </Card>
     </div>
     <div class="center-column">
+    <div v-for="(subf, id) in fixtures.meetings">
+    <div v-for="(fixture, id2) in subf">
       <router-link to="/meeting_key" v-slot="{ href, navigate }" custom>
-        <MeetingCard @click="navigate" href="/meeting_key" />
+        <MeetingCard :title="fixture.title" :date="fixture.datetime-start" :participants="fixture.participants" :description="fixture.summary" @click="navigate" href="/meeting_key" />
       </router-link>
-      <MeetingCard />
-      <MeetingCard />
+    </div>
+    </div>
     </div>
     <div class="right-column">
       <Card class="discussion-card">

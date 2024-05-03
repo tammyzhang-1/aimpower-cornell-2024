@@ -1,23 +1,36 @@
 <script setup>
 import avatar from './icons/avatar.vue';
+defineProps({
+    title: String,
+  subtitle: String,
+  participants: Array,
+  description: String,
+  img: String,
+  author: String, 
+  date: Date
+})
+function getParticipants(participants) {
+    const participantsString = participants.join(', ');
+    return participantsString.length > 50 ? participantsString.substring(0, 50) + '...' : participantsString;
+}
 </script>
 
 <template>
     <Card class="meeting-card">
         <template #title>
-            <span class="title">AI Generative Study Team Meeting</span>
+            <span class="title">{{title}}</span>
             <i class="pi pi-bookmark ml-auto" style="margin-left: 8px;"></i>
         </template>
         <template #subtitle>
-            <datetime v-model="date">9am - 10am</datetime>
+            <datetime>{{date}}</datetime>
         </template>
         <template #content>
+        <div class="participant-avatar">
             <avatar />
-            <span class="participants">Sam Samuels, Amy Winehouse, Britney Spare, and 3 more.</span> <br>
-            <span class="description">Roxanne Tanenbaum asked the panelists about their biggest challenges and
-                frustrations in user research.
-                Sam struggled with getting users to open up, while Amy discussed the difficulties of conducting research
-                in a remote setting.</span>
+            <span class="participants">{{ getParticipants(participants) }}</span>
+        </div>
+             <br>
+            <span class="description">{{description}}</span>
         </template>
     </Card>
 </template>
@@ -58,5 +71,10 @@ import avatar from './icons/avatar.vue';
     font-weight: 400;
     line-height: 140%;
     /* 22.4px */
+}
+.participant-avatar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 </style>
