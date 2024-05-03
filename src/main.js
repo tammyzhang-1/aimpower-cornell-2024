@@ -10,6 +10,9 @@ import fixtures from './fixtures.json'
 const app = createApp(App)
 
 app.config.globalProperties.fixtures = fixtures;
+
+app.config.globalProperties.baseDir = import.meta.env.BASE_URL;
+
 app.use(PrimeVue)
     .use(router);
 

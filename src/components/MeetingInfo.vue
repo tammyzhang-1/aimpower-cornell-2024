@@ -1,13 +1,36 @@
 <script setup>
-    import Button from 'primevue/button';
+    function timestampToFormattedDate(timestamp) {
+        const date = new Date(timestamp * 1000);
+        const options = { 
+            weekday: 'long', 
+            month: 'long',  
+            day: 'numeric', 
+            year: 'numeric' 
+        };
+        const formattedDate = date.toLocaleDateString('en-US', options);
+        return formattedDate;
+    }
+</script>
+
+<script>
+export default {
+    created() {
+    //   console.log(this.fixtures.meetings[this.$route.params.discussion_key])
+    },
+    computed: {
+        meeting() {
+            return this.fixtures.meetings[this.$route.params.discussion_key];
+        }
+    }
+}
 </script>
 
 <template>
     <div id="meeting-info">
-        <h1 id="title">Test Meeting Title</h1>
-        <Button id="create-post" label="+ Create a Post" rounded />
-        <p>Created today, at ... </p>
-        <p>Meeting test info text</p>
+        <h1 id="title">{{ meeting.title }}</h1>
+       
+        <p>Created {{ timestampToFormattedDate(meeting["datetime-end"]) }}, at {{ meeting["time-forum-started"] }}</p>
+        <p>{{ meeting.summary }}</p>
     </div>
 </template>
 
@@ -31,23 +54,6 @@
         font-style: normal;
         font-weight: 400;
         line-height: 140%;
-    }
-
-    #create-post {
-        position: absolute;
-        top: 0em;
-        right: 1em;
-        background-color: #5F5CE6;
-        padding: 16px 27px 16px 28px;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        color: #FFF;
-        text-align: center;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 16px;
     }
     .test {
         border: solid thin gray;

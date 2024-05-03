@@ -7,16 +7,20 @@ defineProps({
   description: String,
   img: String,
   author: String, 
-  date: Date
+  date: Date, 
+  meetingCardInfo: Object
 })
 function getParticipants(participants) {
     const participantsString = participants.join(', ');
     return participantsString.length > 50 ? participantsString.substring(0, 50) + '...' : participantsString;
 }
+function directTo(page) {
+        this.$router.push("/discussion/" + page);
+    }
 </script>
 
 <template>
-    <Card class="meeting-card">
+    <Card class="meeting-card" @click= "directTo(meetingCardInfo)">
         <template #title>
             <span class="title">{{title}}</span>
             <i class="pi pi-bookmark ml-auto" style="margin-left: 8px;"></i>
@@ -42,6 +46,10 @@ function getParticipants(participants) {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     margin-bottom: 20px;
     max-width: 740px;
+}
+
+.meeting-card:hover {
+    cursor: pointer;
 }
 
 .title {

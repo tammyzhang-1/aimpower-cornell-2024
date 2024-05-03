@@ -5,15 +5,31 @@
     import { ref } from "vue";
 
     const value = ref('');
+    const flaired = ref(false);
+
+    console.log(flaired.value)
+
+    const emit = defineEmits(['cancel', 'submit']);
+
+    const toggleFlair = () => {
+        flaired.value = !flaired.value;
+        console.log(flaired.value)
+    };
+
+    const submitPost = () => {
+        emit('submit', [value, flaired.value]); 
+    };
 </script>
+
 
 <template>
     <div>
-        <Button id="add-hear-my-voice-flair" label="+ Hear My Voice" rounded />
+        <Button @click="toggleFlair" :class="flaired ? 'flaired' : 'not-flaired'" id="add-hear-my-voice-flair" 
+            :label="flaired ? 'Hear My Voice' : '+ Hear My Voice'" rounded />
         <Editor v-model="value" editorStyle="height: 300px" />
         <div id="post-button-container">
-            <Button id="cancel-post" label="Cancel" rounded />
-            <Button id="submit-post" class="inactive-post-button" label="Post" rounded />
+            <Button @click="emit('cancel')" id="cancel-post" label="Cancel" rounded />
+            <Button @click="submitPost" id="submit-post" :class="value.length == 0 ? 'inactive-post-button' : 'active-post-button'" label="Post" rounded />
         </div>
     </div>
 </template>
@@ -21,8 +37,6 @@
 <style>
     #add-hear-my-voice-flair {
         border-radius: 24.939px;
-        border: 0.499px solid black;
-        background: #FFF;
         box-shadow: 0px 1.995px 1.995px 0px rgba(0, 0, 0, 0.25);
         justify-content: center;
         align-items: center;
@@ -31,12 +45,24 @@
         width: 190px;
         height: 44.326px;
         flex-shrink: 0;
-        color: var(--Meta-Meta, #677E92);
         font-size: 17.956px;
-        font-style: normal;
-        font-weight: 600;
         line-height: 120%; 
         margin-bottom: 0.5em;
+    }
+
+    .flaired {
+        background: #ECFDE5;
+        color: #188156;
+        font-style: bold;
+        border: none;
+    }
+
+    .not-flaired {
+        background: #FFF;
+        color: var(--Meta-Meta, #677E92);
+        font-weight: 600;
+        font-style: normal;
+        border: 0.499px solid black;
     }
 
     #post-button-container {

@@ -1,17 +1,12 @@
 <script setup>
     import Avatar from 'primevue/avatar';
     import Button from 'primevue/button';
-    import Reply from './Reply.vue';
-    import HearMyVoiceFlair from './icons/HearMyVoiceFlair.vue';
-    import { ref } from 'vue';
 
     const props = defineProps({
-        postInfo: Object
-    });
+        replyInfo: Object
+    })
 
-    console.log(props.postInfo.flaired)
-
-    const liked = ref(false);
+    console.log(props.replyInfo)
 </script>
 
 <script>
@@ -19,45 +14,37 @@
   methods: {
     getUserInfo(userId) {
         return this.fixtures.users[userId].name;
+    },
+    getOffset() {
+        console.log(this.replyInfo["reply-level"])
+        return this.replyInfo["reply-level"] * 3 + 'em';
     }
   }
 }
 </script>
 
 <template>
-    <div id="post">
+    <div id="reply" v-bind:style="{marginLeft: getOffset()}">
         <Avatar class="profile-img" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle"/>
-        <Button id="more-post-actions" label="..."/>
+        <Button id="more-reply-actions" label="..."/>
 
-        <div id="post-main">
-            <div id="post-info">
-                <span id="poster-username">{{ getUserInfo(postInfo['post-author']) }}</span>
+        <div id="reply-main">
+            <div id="reply-info">
+                <span id="replier-username">{{ getUserInfo(replyInfo['reply-author']) }}</span>
                 <span class="divider">·</span>
-                <span id="post-timestamp">{{ postInfo['post-time'] }}</span>
-                <HearMyVoiceFlair v-if="postInfo.flaired" />
+                <span id="reply-timestamp">{{ replyInfo['reply-time'] }}</span>
             </div>
-            <span id="post-banner">
-                <h2 id="title">{{ postInfo['post-title'] }}</h2>
-                
-            </span>
-            <p class="post-content" v-html=" postInfo.content "></p>
-            <div id="post-reactions">
-                <Button id="love-react" class="inactive post-reaction" 
-                    @click="liked = !liked"
-                    :icon="liked ? 'pi pi-heart-fill' : 'pi pi-heart'" :label="liked ? '1' : '0'" />
-                <Button id="reply-react" class="post-reaction" icon="pi pi-comment" label="0" />
+            <p class="reply-content">{{ replyInfo.content }}</p>
+            <div id="reply-reactions">
+                <Button id="love-react" class="inactive reply-reaction" icon="pi pi-heart" label="0" />
+                <Button id="reply-react" class="reply-reaction" icon="pi pi-comment" label="0" />
             </div>
         </div>
     </div>
-    <template v-for="reply in postInfo['replies']">
-        <Reply 
-          :replyInfo="reply"
-        />
-    </template>
 </template>
 
 <style scoped>
-    #post {
+    #reply {
         display: flex;
         gap: 0.5em;
         position: relative;
@@ -65,12 +52,7 @@
         margin-bottom: 1em;
     }
 
-    #post-banner {
-        display: flex;
-        gap: 0.5em;
-    }
-
-    #more-post-actions {
+    #more-reply-actions {
         position: absolute;
         top: 0em;
         right: 1em;
@@ -82,10 +64,9 @@
         height: 0.75em
     }
 
-    #post-info {
+    #reply-info {
         display: flex;
         gap: 0.5em;
-        align-items: center;
     }
 
     .profile-img {
@@ -94,7 +75,7 @@
         aspect-ratio: 1 / 1;
     }
 
-    #poster-username {
+    #replier-username {
         color: #229AED;
         font-size: 22px;
         font-style: normal;
@@ -109,7 +90,7 @@
         line-height: 140%;
     }
 
-    #post-timestamp {
+    #reply-timestamp {
         color: var(--Meta-Meta, #677E92);
         font-size: 20px;
         font-style: normal;
@@ -128,7 +109,7 @@
         margin-left: 0;
     }
 
-    .post-content {
+    .reply-content {
         color: var(--darkText, #322D2D);
         font-size: 20px;
         font-style: normal;
@@ -138,15 +119,16 @@
         margin-bottom: 0.25em;
     }
 
-    #post-reactions {
+    #reply-reactions {
         display: flex;
         gap: 0.5em;
         margin-top: 1em;
     }
-    .post-reaction {
+    .reply-reaction {
         border-radius: 45.155px;
         background: #E5E5E5;
         color: black;
         border: none;
     }
+
 </style>
