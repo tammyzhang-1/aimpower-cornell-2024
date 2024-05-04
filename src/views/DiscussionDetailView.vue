@@ -76,6 +76,7 @@ export default {
     },
     meeting() {
       return this.fixtures.meetings[this.$route.params.discussion_key];
+      console.log(this.fixtures.meetings[this.$route.params.discussion_key])
     }
   }
 }

@@ -7,15 +7,14 @@ import MeetingNotes from '@/components/MeetingNotes.vue'
   <div class="content">
     <div class="left-column">
       <div v-for="(fixture, id) in fixtures.meetings">
-            <MeetingTab :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :participants="fixture.participants"
-              :description="fixture.summary" @click="directTo(id)" href="/meeting_key" />\
+            <MeetingTab :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :date="fixture.date" @click="directTo(id)" href="/meeting_key" />\
         </div>
     </div>
     <div class="right-column">
       <MeetingNotes />
     </div>
   </div>
-</template>\\ \
+</template>
 
 <style scoped>
 .content {

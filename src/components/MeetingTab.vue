@@ -2,11 +2,10 @@
 defineProps({
     title: String,
   subtitle: String,
-  participants: Array,
-  description: String,
   starttime: String, 
   endtime: String,
-  meetingTabInfo: Object
+  meetingTabInfo: Object, 
+  date: String
 }) 
 </script>
 
@@ -21,13 +20,13 @@ defineProps({
 </script>
 
 <template>
-  <Card class="meeting-card" @click= "directTo(meetingTabInfo)">
+  <Card class="meeting-card">  <!-- @click= "directTo(meetingTabInfo)" -->
         <template #title>
             <span class="title">{{title}}</span>
         </template>
         <template #subtitle>
-            <datetime v-model="date">{{starttime}} - {{ endtime }}</datetime>
-            <datetime style="margin-left: 8px">Today</datetime> 
+            <datetime>{{starttime}} - {{ endtime }}</datetime>
+            <datetime style="margin-left: 8px">{{date}}</datetime> 
         </template>
     </Card>
 </template>
