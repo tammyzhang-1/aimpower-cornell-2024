@@ -1,7 +1,7 @@
 <script setup>
 import avatar from './icons/avatar.vue';
 defineProps({
-    title: String,
+title: String,
   subtitle: String,
   participants: Array,
   description: String,

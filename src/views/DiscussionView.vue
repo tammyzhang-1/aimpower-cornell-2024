@@ -2,6 +2,15 @@
 <script setup>
   import Button from 'primevue/button';
   import MeetingCard from '../components/MeetingCard.vue';
+  import { useRoute, useRouter } from 'vue-router'
+
+  const route = useRoute();
+  const router = useRouter();
+
+  function directTo(page) {
+    console.log(page)
+        router.push("/discussion/" + page);
+  }
 </script>
 
 <script>
@@ -26,7 +35,8 @@
     </div>
     <template v-for="meeting in allMeetings">
       <span>{{ meeting.date }}</span>
-      <MeetingCard :meetingCardInfo="meeting.id" class="meeting-card"></MeetingCard>
+      <MeetingCard :meetingCardInfo="meeting.id" class="meeting-card" :title="meeting.title" :starttime="meeting['time-start']" :endtime="meeting['time-end']" :participants="meeting.participants"
+              :description="meeting.summary" @click="directTo(meeting.id)"></MeetingCard>
     </template>
   </div>
 </template>

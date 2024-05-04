@@ -3,6 +3,24 @@ import MeetingTab from '@/components/MeetingTab.vue';
 import MeetingNotes from '@/components/MeetingNotes.vue'
 </script>
 
+<script>
+// console.log(fixtures)
+export default {
+  created() {
+    console.log(this.fixtures.meetings)
+    console.log(this.fixtures.meetings[this.$route.params.meeting_key])
+  },
+  computed: {
+    allMeetings() {
+      return this.fixtures.meetings;
+    },
+    meeting() {
+      return this.fixtures.meetings[this.$route.params.meeting_key];
+    }
+  }
+}
+</script>
+
 <template>
   <div class="content">
     <div class="left-column">

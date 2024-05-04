@@ -86,7 +86,7 @@ export default {
   <main>
     <aside id="meeting-tab-container">
       <template v-for="meeting in allMeetings">
-        <MeetingTab :class="meeting.id == $route.params.discussion_key ? 'active-tab' : 'inactive-tab'" @click="setHome" :meetingTabInfo="meeting.id"></MeetingTab>
+        <MeetingTab :class="meeting.id == $route.params.discussion_key ? 'active-tab' : 'inactive-tab'" :title="meeting.title" :starttime="meeting['time-start']" :endtime="meeting['time-end']" :date="meeting.date" @click="setHome" :meetingTabInfo="meeting.id"></MeetingTab>
       </template>
     </aside>
     <div id="main-post-area">
