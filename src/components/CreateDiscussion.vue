@@ -7,8 +7,6 @@
     const value = ref('');
     const flaired = ref(false);
 
-    console.log(flaired.value)
-
     const emit = defineEmits(['cancel', 'submit']);
 
     const toggleFlair = () => {

@@ -5,7 +5,6 @@ import MeetingInfo from '../components/MeetingInfo.vue';
 import NoDiscussion from '../components/NoDiscussion.vue';
 import CreateDiscussion from '../components/CreateDiscussion.vue';
 import Post from '../components/Post.vue';
-import CreateReply from '../components/CreateReply.vue';
 
 import { ref } from 'vue';
 import Button from 'primevue/button';
@@ -35,7 +34,6 @@ function createPost(content) {
     "post-datetime": Date.now(),
     "post-id": timestampToDateString(Date.now()) + "-post-" + newPosts.value.length,
     "post-time": timestampToTimeString(Date.now()),
-    "post-title": "test",
     "reactions": [],
     "replies": {}
   })

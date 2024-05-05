@@ -3,25 +3,67 @@
     import Button from 'primevue/button';
     import Reply from './Reply.vue';
     import HearMyVoiceFlair from './icons/HearMyVoiceFlair.vue';
+    import CreateReply from './CreateReply.vue';
     import { ref } from 'vue';
 
     const props = defineProps({
         postInfo: Object
     });
 
-    console.log(props.postInfo.flaired)
+    console.log(props.postInfo)
 
     const liked = ref(false);
+    const editingReply = ref(false);
+    const newReplies = ref([]);
+    const replyCount = ref(0);
+
+    function setHome() {
+        editingReply.value = false;
+    }
+
+    function createReply(content) {
+        editingReply.value = false;
+        replyCount.value += 1;
+        console.log(content)
+        newReplies.value.push(
+            {
+                "reply-id": "04-19-2024-reply-1",
+                "reply-author": "user-1",
+                "reply-to": props.postInfo['post-id'],
+                "reply-level": 1,
+                "reply-datetime": Date.now(),
+                "reply-time": "10:20 am",
+                "content": content,
+                "reactions": []
+            }
+        )
+        newReplies.value.forEach(reply =>
+            props.postInfo.replies.push(reply));
+        
+    }
 </script>
 
 <script>
   export default {
-  methods: {
-    getUserInfo(userId) {
-        return this.fixtures.users[userId].name;
+    computed: {
+        allComments() {
+            console.log(this)
+            // this.postInfo.replies = this.newReplies;
+            console.log(Object.keys(this.postInfo.replies).length)
+
+            console.log(this.postInfo)
+            return this.postInfo
+        },
+        commentCounter() {
+            return Object.keys(this.postInfo.replies).length.toString();
+        }
+    },
+    methods: {
+        getUserInfo(userId) {
+            return this.fixtures.users[userId].name;
+        }
     }
   }
-}
 </script>
 
 <template>
@@ -36,24 +78,27 @@
                 <span id="post-timestamp">{{ postInfo['post-time'] }}</span>
                 <HearMyVoiceFlair v-if="postInfo.flaired" />
             </div>
-            <span id="post-banner">
-                <h2 id="title">{{ postInfo['post-title'] }}</h2>
-                
+            <span v-if="postInfo['post-title']" id="post-banner">
+                <h2 id="title">{{ postInfo['post-title'] }}</h2>  
             </span>
             <p class="post-content" v-html=" postInfo.content "></p>
             <div id="post-reactions">
                 <Button id="love-react" class="inactive post-reaction" 
                     @click="liked = !liked"
                     :icon="liked ? 'pi pi-heart-fill' : 'pi pi-heart'" :label="liked ? '1' : '0'" />
-                <Button id="reply-react" class="post-reaction" icon="pi pi-comment" label="0" />
+                <Button id="reply-react" class="post-reaction" 
+                    @click="editingReply = !editingReply"
+                    icon="pi pi-comment" :label="replyCount.toString()" />
             </div>
         </div>
     </div>
+    <CreateReply @cancel="setHome" @submit="(content) => createReply(content)" v-if="editingReply" />
     <template v-for="reply in postInfo['replies']">
         <Reply 
           :replyInfo="reply"
         />
     </template>
+    <span v-if="allComments"></span>
 </template>
 
 <style scoped>
