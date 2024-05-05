@@ -64,13 +64,12 @@ function timestampToDateString(timestamp) {
 
 <script>
 export default {
-  created() {
-    console.log(this.fixtures.meetings)
-    console.log(this.fixtures.meetings[this.$route.params.discussion_key])
-  },
   computed: {
     allMeetings() {
-      return this.fixtures.meetings;
+      const filteredEntries = Object.fromEntries(
+        Object.entries(this.fixtures.meetings).filter(([key, value]) => value.exists === true)
+      );
+      return filteredEntries;
     },
     meeting() {
       return this.fixtures.meetings[this.$route.params.discussion_key];

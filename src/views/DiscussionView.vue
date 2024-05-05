@@ -20,7 +20,10 @@
     },
     computed: {
       allMeetings() {
-        return this.fixtures.meetings;
+        const filteredEntries = Object.fromEntries(
+          Object.entries(this.fixtures.meetings).filter(([key, value]) => value.exists === true)
+        );
+        return filteredEntries;
       }
     }
   }

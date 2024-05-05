@@ -9,6 +9,7 @@
             "time-start": "9:00 am",
             "time-end": "10:00 am",
             "time-forum-started": "10:10 am",
+            "exists": true,
             "participants": [
                 "Roxanne Tanenbaum",
                 "Sam Samuels",
@@ -113,6 +114,7 @@
             "time-start": "4:00 pm",
             "time-end": "6:00 pm",
             "time-forum-started": "6:23 pm",
+            "exists": true,
             "participants": [
                 "Sam Methuselah",
                 "Abhiram Pulipati",
@@ -227,6 +229,7 @@
             "time-start": "9:00 am",
             "time-end": "10:00 am",
             "time-forum-started": "10:10 am",
+            "exists": false,
             "participants": [
                 "Bill Sanders",
                 "Reese Witherspoon",
