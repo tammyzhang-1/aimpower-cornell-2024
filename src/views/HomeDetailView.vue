@@ -30,9 +30,11 @@ export default {
 <template>
   <div class="content">
     <div class="left-column">
+    <div class="reverse">
       <div v-for="(fixture, id) in fixtures.meetings">
             <MeetingTab :class="fixture.id == $route.params.meeting_key ? 'active-tab' : 'inactive-tab'" :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :date="fixture.date" @click="directTo(id)" href="/meeting_key" />\
         </div>
+    </div>
     </div>
     <div v-for="(fixture, id) in fixtures.meetings" class="right-column">
       <div v-if="fixture.id == $route.params.meeting_key">

@@ -35,11 +35,13 @@ function directTo(page) {
           <Button id="saved-filter" label="Saved" />
         </div>
       </div>
-      <div v-for="(fixture, id) in fixtures.meetings" class="meeting-block">
+      <div class="reverse">
+        <div v-for="(fixture, id) in fixtures.meetings" class="meeting-block">
         <span style="color: gray;">{{fixture['date']}}</span>
         <MeetingCard :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']"
           :participants="fixture.participants" :description="fixture.summary" @click="directTo(id)"
           href="/meeting_key"  style="margin-bottom: 20px;"/>
+      </div>
       </div>
     </div>
     <div class="right-column">
