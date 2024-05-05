@@ -18,14 +18,18 @@ html, main, body, #app {
   color: #6B4EFF !important;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
-  background: #E2DCFF;
+  background: #E2DCFF !important;
 }
 .p-dropdown{
   width: 55% !important;
 }
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  color: #6B4EFF !important;
+  background: #E2DCFF !important;
+}
 
 .p-dropdown:not(.p-disabled).p-focus {
-  outline: 1px solid #94a3b8;
+  outline: 1px solid #94a3b8 !important;
   outline-offset: -1px;
   box-shadow: none;
   border-color: #94a3b8;

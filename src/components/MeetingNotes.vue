@@ -7,16 +7,14 @@ import CalendarIcon from './icons/CalendarIcon.vue';
 import Dropdown from 'primevue/dropdown';
 import { ref } from "vue";
 import { useRoute, useRouter } from 'vue-router';
+import Post from './Post.vue';
 const route = useRoute();
 const router = useRouter();
-const selectedPost = ref();
-// const cities = ref([
-//     { name: 'New York', code: 'NY' },
-//     { name: 'Rome', code: 'RM' },
-//     { name: 'London', code: 'LDN' },
-//     { name: 'Istanbul', code: 'IST' },
-//     { name: 'Paris', code: 'PRS' }
-// ]);
+const selectedPost = ref('');
+const posts = ref([
+    { name: 'My Thoughts On The Brand Color' },
+    { name: 'My Thoughts On The Diary Study'}
+]);
 defineProps({
     title: String,
     subtitle: String,
@@ -120,9 +118,13 @@ function setHome() {
                 font-weight: 600;
                 line-height: normal;">Transcript</span>
                 <div class="card flex justify-content-center" style="margin-top: 20px;">
-                    <Dropdown v-model="selectedPost" :options="cities" optionLabel="name"
+                    <Dropdown v-model="selectedPost" :options="posts" optionLabel="name"
                         placeholder="Select a post from Discussion Forum ..." class="w-full md:w-14rem">
                     </Dropdown>
+                    {{ console.log(selectedPost) }}
+                    <div v-for="(fixture, id) in fixtures['meetings']['posts']" >
+                        <Post v-if="fixture['main-posts']['main-post-1']['post-title'] == selectedPost.name" :postInfo="fixture['main-post-1']"/>
+                    </div>
                 </div>
                 <div class="transcript" v-for="dialogueitem in transcript">
                     <div class="user-info">
