@@ -9,18 +9,8 @@ defineProps({
 }) 
 </script>
 
-<script>
-export default {
-    methods: {
-        directTo(page) {
-            this.$router.push("/discussion/" + page);
-        }
-    }
-}
-</script>
-
 <template>
-    <Card class="meeting-card"> <!-- @click= "directTo(meetingTabInfo)" -->
+    <Card class="meeting-card"> 
         <template #title>
             <span class="title">{{ title }}</span>
         </template>

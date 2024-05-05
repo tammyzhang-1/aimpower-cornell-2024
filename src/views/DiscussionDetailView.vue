@@ -39,7 +39,6 @@
         "reactions": [],
         "replies": {}
       })
-      console.log(newPosts.value)
     }
 
     function timestampToTimeString(timestamp) {
@@ -64,7 +63,6 @@
 </script>
 
 <script>
-// console.log(fixtures)
 export default {
   created() {
     console.log(this.fixtures.meetings)
@@ -76,17 +74,21 @@ export default {
     },
     meeting() {
       return this.fixtures.meetings[this.$route.params.discussion_key];
-      console.log(this.fixtures.meetings[this.$route.params.discussion_key])
     }
-  }
+  },
+    methods: {
+        directTo(page) {
+            this.$router.push("/discussion/" + page);
+        }
+    }
 }
 </script>
 
 <template>
   <main>
-    <aside id="meeting-tab-container">
-      <template v-for="meeting in allMeetings">
-        <MeetingTab :class="meeting.id == $route.params.discussion_key ? 'active-tab' : 'inactive-tab'" :title="meeting.title" :starttime="meeting['time-start']" :endtime="meeting['time-end']" :date="meeting.date" @click="setHome" :meetingTabInfo="meeting.id"></MeetingTab>
+    <aside class="reverse" id="meeting-tab-container">
+      <template  v-for="meeting in allMeetings">
+        <MeetingTab :class="meeting.id == $route.params.discussion_key ? 'active-tab' : 'inactive-tab'" :title="meeting.title" :starttime="meeting['time-start']" :endtime="meeting['time-end']" :date="meeting.date" @click="setHome(),directTo(meeting.id)" :meetingTabInfo="meeting.id"></MeetingTab>
       </template>
     </aside>
     <div id="main-post-area">
@@ -161,6 +163,14 @@ export default {
 
     .active-tab {
       background-color: #E2DCFF;
+    }
+
+    .reverse {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
     }
 
 </style>

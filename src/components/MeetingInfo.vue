@@ -29,7 +29,7 @@ export default {
     <div id="meeting-info">
         <h1 id="title">{{ meeting.title }}</h1>
        
-        <p>Created {{ timestampToFormattedDate(meeting["datetime-end"]) }}, at {{ meeting["time-forum-started"] }}</p>
+        <p>Created {{ meeting.date }}, at {{ meeting["time-forum-started"] }}</p>
         <p>{{ meeting.summary }}</p>
     </div>
 </template>
