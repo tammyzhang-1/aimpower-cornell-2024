@@ -21,8 +21,14 @@ function directTo(page) {
 <template>
    <Card class="meeting-card">  <!-- @click= "directTo(meetingCardInfo)" -->
         <template #title>
-            <span class="title">{{title}}</span>
-            <i class="pi pi-bookmark ml-auto" style="margin-left: 8px;"></i>
+            <div  class="heading">
+                <div>
+                <span class="title">{{title}}</span>
+            </div>
+            <div>
+                <i class="pi pi-bookmark ml-auto" style="margin-left: 8px;"></i>
+            </div>
+            </div>
         </template>
         <template #subtitle>
             <datetime>{{starttime}} - {{ endtime }}</datetime>
@@ -43,7 +49,6 @@ function directTo(page) {
     border-radius: 11.25px;
     background: #F9F9F9;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-bottom: 20px;
     max-width: 740px;
 }
 
@@ -83,5 +88,11 @@ function directTo(page) {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+.heading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 </style>

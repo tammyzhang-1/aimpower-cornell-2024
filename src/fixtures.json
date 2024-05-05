@@ -5,10 +5,12 @@
             "datetime-start": 1713531600,
             "datetime-end": 1713535200,
             "date": "Friday, April 19",
+            "date-year": "April 19, 2024",
             "time-start": "9:00 am",
             "time-end": "10:00 am",
             "time-forum-started": "10:10 am",
             "participants": [
+                "Roxanne Tanenbaum",
                 "Sam Samuels",
                 "Amy Winehouse",
                 "Britney Spare",
@@ -76,13 +78,38 @@
                         "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
                     }
                 }
-            }
+            }, 
+            "transcript": {
+                    "id": "04-19-2024-meeting-1",
+                    "dialogue": [
+                        {
+                            "speaker": "Roxanne Tanenbaum",
+                            "message": "Good morning, everyone. Welcome to today's AI Generative Study Team Meeting. Let's start by discussing our biggest challenges and frustrations in user research. Sam, would you like to kick us off?",
+                            "timestamp": 1713535800
+                        },
+                        {
+                            "speaker": "Sam Samuels",
+                            "message": "H-Hi, R-Roxanne. Thanks for the introduction. One of my m-m-main challenges is getting users to open up during research sessions. Building trust seems to be a key factor. For instance, in our recent study, users were hesitant to share their true opinions, possibly due to fear of judgment or c-confidentiality concerns.",
+                            "timestamp": 1713536100
+                        },
+                        {
+                            "speaker": "Amy Winehouse",
+                            "message": "I completely understand, Sam. Conducting research in a remote setting adds another layer of difficulty. It's challenging to gauge non-verbal cues and maintain engagement. In our last project, we encountered issues with participants multitasking during virtual sessions, impacting the quality of data collected.",
+                            "timestamp": 1713536400
+                        }, 
+                        {
+                            "speaker": "Britney Spare",
+                            "message": "I agree with Amy. Sometimes users are hesitant to participate fully, especially in virtual environments. We need to find ways to make the process more interactive and engaging. For example, incorporating gamification elements or breakout sessions might encourage greater participation and collaboration among users."
+                        }
+                    ]
+                }
         },
         "04-20-2024-meeting-2": {
             "id": "04-20-2024-meeting-2",
             "datetime-start": 1713531600,
             "datetime-end": 1713535200,
             "date": "Saturday, April 20",
+            "date-year": "April 20, 2024",
             "time-start": "4:00 pm",
             "time-end": "6:00 pm",
             "time-forum-started": "6:23 pm",
@@ -154,24 +181,60 @@
                         "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
                     }
                 }
+            }, 
+            "transcript": {
+                "id": "04-20-2024-meeting-2",
+                "dialogue": [
+                    {
+                        "speaker": "Sam Methuselah",
+                        "message": "Good afternoon, everyone. Welcome to our Employee Research Team Meeting. Today, we're going to discuss the importance of conducting research in a remote setting. Abhiram, could you start us off?",
+                        "timestamp": 1713535800
+                    },
+                    {
+                        "speaker": "Abhiram Pulipati",
+                        "message": "Of course, Sam. Thank you. In my experience, one of the major challenges is maintaining participant engagement during remote sessions. Without face-to-face interactions, it can be difficult to capture their full attention.",
+                        "timestamp": 1713536100
+                    },
+                    {
+                        "speaker": "Harsh Siriah",
+                        "message": "I-I-I agree with Abhiram. Another issue we face is ensuring the reliability and validity of our data. W-with participants spread across different locations, it's essential to standardize our research methodologies and minimize bias.",
+                        "timestamp": 1713536400
+                    },
+                    {
+                        "speaker": "Joe Sunil",
+                        "message": "Yeah, I've noticed that too. Ensuring consistent data collection methods and avoiding leading questions are key to obtaining accurate insights. It's also important to establish rapport with participants to encourage open and honest responses.",
+                        "timestamp": 1713536700
+                    },
+                    {
+                        "speaker": "Sahil Aggarwal",
+                        "message": "Absolutely, Joe. Additionally, we need to consider the technical challenges of remote research, such as internet connectivity issues and platform compatibility. Providing technical support and clear instructions can help mitigate these obstacles.",
+                        "timestamp": 1713537000
+                    },
+                    {
+                        "speaker": "Ashwin Shete",
+                        "message": "I couldn't agree more, Sahil. I believe incorporating diverse perspectives and experiences into our research design can enrich our findings and improve the overall quality of our studies. Collaboration and open communication are essential in overcoming the challenges of remote research.",
+                        "timestamp": 1713537300
+                    }
+                ]
             }
         },
         "04-21-2024-meeting-3": {
             "id": "04-21-2024-meeting-3",
             "datetime-start": 1713531600,
             "datetime-end": 1713535200,
-            "date": "Sunday, April 20",
+            "date": "Sunday, April 21",
+            "date-year": "April 21, 2024",
             "time-start": "9:00 am",
             "time-end": "10:00 am",
             "time-forum-started": "10:10 am",
             "participants": [
                 "Bill Sanders",
                 "Reese Witherspoon",
-                "Samuel Smith",
-                "Britney Spare",
-                "Andrew Gates",
-                "Bill Martin",
-                "Christina Aguilera"
+                "Roy Hawkins",
+                "Wendy Williams",
+                "Paul Smith",
+                "Quincy Johnson",
+                "Tom Cruise"
             ],
             "title": "Product Development Team Meeting",
             "summary": "Sam and Britney discussed the importance of conducting research in a remote setting. Sam and Andrew discussed the difficulties of conducting research in a remote setting.",
@@ -233,6 +296,31 @@
                         "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
                     }
                 }
+            }, 
+            "transcript":{
+                "id": "04-21-2024-meeting-3",
+                "dialogue": [
+                    {
+                        "speaker": "Bill Sanders",
+                        "message": "Good morning, everyone. Welcome to our Product Development Team Meeting. Today, we'll be discussing the latest updates and challenges in our development process. Reese, could you start us off?",
+                        "timestamp": 1713535800
+                    },
+                    {
+                        "speaker": "Reese Witherspoon",
+                        "message": "O-Of course, Bill. Thank you. One of the challenges we've been facing is maintaining consistency across our design iterations. With multiple teams working on different aspects of the product, it's crucial to ensure alignment and coherence in our user experience.",
+                        "timestamp": 1713536100
+                    },
+                    {
+                        "speaker": "Roy Hawkins",
+                        "message": "I completely agree, Reese. Another issue is prioritizing feature development based on user feedback and market demand. We need to strike a balance between adding new functionalities and refining existing ones to deliver maximum value to our customers.",
+                        "timestamp": 1713536400
+                    },
+                    {
+                        "speaker": "Wendy Williams",
+                        "message": "Y-Yes, I've noticed that too, Roy. It's essential to involve stakeholders early in the development process to gather requirements and set clear objectives. Establishing a shared vision ensures that our efforts are focused on delivering a product that meets user needs and business goals.",
+                        "timestamp": 1713536700
+                    }
+                ]
             }
         }
     },
@@ -255,11 +343,71 @@
         },
         "user-5": {
             "id": "user-5",
-            "name": "Christina Aguilera"
+            "name": "Andrew Gates"
         },
         "user-6": {
             "id": "user-6",
-            "name": "John Doe"
+            "name": "Bill Martin"
+        }, 
+        "user-7": {
+            "id": "user-7",
+            "name": "Andrew Gates"
+        },
+        "user-8": {
+            "id": "user-8",
+            "name": "Christina Aguilera"
+        }, 
+        "user-9": {
+            "id": "user-9",
+            "name": "Sam Methuselah"
+        },
+        "user-10": {
+            "id": "user-10",
+            "name": "Abhiram Pulipati"
+        }, 
+        "user-11": {
+            "id": "user-11",
+            "name": "Harsh Siriah"
+        }, 
+        "user-12": {
+            "id": "user-12",
+            "name": "Joe Sunil"
+        }, 
+        "user-13": {
+            "id": "user-13",
+            "name": "Sahil Aggarwal"
+        }, 
+        "user-14": {
+            "id": "user-14",
+            "name": "Ashwin Shete"
+        }, 
+        "user-15": {
+            "id":"user-15",
+            "name": "Bill Sanders"
+        },
+        "user-16": {
+            "id": "user-16",
+            "name": "Reese Witherspoon"
+        },
+        "user-17": {
+            "id": "user-17",
+            "name": "Roy Hawkins"
+        },
+        "user-18": {
+            "id": "user-18",
+            "name": "Wendy Williams"
+        },
+        "user-19": {
+            "id": "user-19",
+            "name": "Paul Smith"
+        },
+        "user-20": {
+            "id": "user-20",
+            "name": "Quincy Johnson"
+        },
+        "user-21": {
+            "id": "user-21",
+            "name": "Tom Cruise"
         }
     }
 }

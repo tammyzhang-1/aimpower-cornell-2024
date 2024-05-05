@@ -5,7 +5,18 @@ import avatar from './icons/avatar.vue';
 import CalendarIcon from './icons/CalendarIcon.vue';
 import Dropdown from 'primevue/dropdown';
 import { ref } from "vue";
-
+defineProps({
+    title: String,
+    subtitle: String,
+    participants: Array,
+    description: String,
+    starttime: String,
+    endtime: String,
+    meetingCardInfo: Object,
+    dateyear: String,
+    transcript: Array,
+    timestamp: Number
+})
 const selectedCity = ref('');
 const cities = ref([
     { name: 'New York', code: 'NY' },
@@ -14,6 +25,21 @@ const cities = ref([
     { name: 'Istanbul', code: 'IST' },
     { name: 'Paris', code: 'PRS' }
 ]);
+function timestampToTimeString(timestamp) {
+    const date = new Date(timestamp);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+    const period = hours < 12 ? 'am' : 'pm';
+    const timeString = `${formattedHours}:${formattedMinutes} ${period}`;
+    return timeString;
+}
+function getParticipantCount(participants) {
+    return participants.length;
+}
+
+const visible = ref(false);
 
 </script>
 
@@ -24,12 +50,17 @@ const cities = ref([
             <div class="meeting-title">
                 <div class="heading">
                     <BackButton />
-                    <span class="title">AI Generative Study Team Meeting</span>
+                    <span class="title">{{ title }}</span>
                 </div>
                 <div>
-                    <router-link v-slot="{ href, navigate }" to="/discussion" custom>
-                        <Button :href="href" label="Discussion Forum" class="w-100 button" @click="navigate" />
-                    </router-link>
+                    <Button :href="href" label="Create Discussion Forum" class="w-100 button" @click="visible = true" />
+                    <Dialog v-model:visible="visible" modal header="Send Invitation" class="font-bold w-6rem">
+                    <p style="margin-top:0; font-weight: semibold">Would you like to send invitation emails to all participants?</p>
+                    <div class="button-container">
+                        <Button link style="color: gray;">Don't Send</Button>
+                        <Button link style="color: #6B4EFF">Send</Button>
+                    </div>
+                    </Dialog>
                 </div>
             </div>
         </template>
@@ -42,12 +73,12 @@ const cities = ref([
                 </div>
                 <div class="date">
                     <CalendarIcon />
-                    <date>April 3 2024</date>
-                    <datetime>9am - 10am</datetime>
+                    <date>{{ dateyear }}</date>
+                    <datetime>{{ starttime }} - {{ endtime }}</datetime>
                 </div>
                 <div class="users">
                     <UsersIcon />
-                    <span>Shared with XXX</span>
+                    <span>Shared with {{ getParticipantCount(participants) }} people</span>
                 </div>
             </div>
         </template>
@@ -57,40 +88,29 @@ const cities = ref([
                 font-style: normal; 
                 font-weight: 600;
                 line-height: normal;">Summary</span>
-                <p class="description">Roxanne Tanenbaum asked the panelists about their biggest challenges
-                    and frustrations in user research. Sam struggled with getting users to open up,
-                    while Amy discussed the difficulties of conducting research in a remote setting.</p>
+                <p class="description">{{ description }}</p>
             </div>
             <div class="transcript-container">
                 <span style="font-size: 20px; 
                 font-style: normal; 
                 font-weight: 600;
                 line-height: normal;">Transcript</span>
-                <div class="transcript">
+                <div class="transcript" v-for="dialogueitem in transcript">
                     <div class="user-info">
                         <avatar />
-                        <span style="font-weight: 600;">Roxanne</span>
-                        <datetime style="font-weight: 400; color:#677E92">9:00am - 9:02am</datetime>
+                        <span style="font-weight: 600;">{{ dialogueitem.speaker }}</span>
+                        <datetime style="font-weight: 400; color:#677E92">{{
+                            timestampToTimeString(dialogueitem.timestamp) }}</datetime>
                     </div>
-                    <p class="description" style="margin: 0;">One you have a milestone to add to the Google Docs and
-                        in this case okay okay go user resources as a user research ma Hapa
-                        hapa no no user research user user Singapore.</p>
-                </div>
-                <div class="transcript">
-                    <div class="user-info">
-                        <avatar />
-                        <span style="font-weight: 600;">Amy</span>
-                        <datetime style="font-weight: 400; color:#677E92">9:02am</datetime>
-                    </div>
-                    <p class="description" style="margin: 0;">Ok Cool.</p>
+                    <p class="description" style="margin: 0;">{{ dialogueitem.message }}</p>
                 </div>
                 <div class="card flex justify-content-center" style="margin-top: 20px;">
-                <Dropdown v-model="selectedCity" :options="cities" optionLabel="name"
+                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name"
                         placeholder="Select a post from discussion forum ..." class="w-full md:w-14rem" />
                 </div>
             </div>
         </template>
-</Card>
+    </Card>
 </template>
 
 <style scoped>
@@ -170,6 +190,7 @@ const cities = ref([
     border-radius: 48px;
     background: #6B4EFF;
     border: none;
+    font-size: 14px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -187,5 +208,12 @@ const cities = ref([
     align-items: center;
     justify-content: flex-start;
     column-gap: 10px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
 }
 </style>

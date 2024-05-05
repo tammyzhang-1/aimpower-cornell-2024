@@ -1,40 +1,47 @@
 <script setup>
 defineProps({
     title: String,
-  subtitle: String,
-  starttime: String, 
-  endtime: String,
-  meetingTabInfo: Object, 
-  date: String
+    subtitle: String,
+    starttime: String,
+    endtime: String,
+    meetingTabInfo: Object,
+    date: String
 }) 
 </script>
 
 <script>
-  export default {
-  methods: {
-    directTo(page) {
-        this.$router.push("/discussion/" + page);
+export default {
+    methods: {
+        directTo(page) {
+            this.$router.push("/discussion/" + page);
+        }
     }
-  }
 }
 </script>
 
 <template>
-  <Card class="meeting-card">  <!-- @click= "directTo(meetingTabInfo)" -->
+    <Card class="meeting-card"> <!-- @click= "directTo(meetingTabInfo)" -->
         <template #title>
-            <span class="title">{{title}}</span>
+            <span class="title">{{ title }}</span>
         </template>
         <template #subtitle>
-            <datetime>{{starttime}} - {{ endtime }}</datetime>
-            <datetime style="margin-left: 8px">{{date}}</datetime> 
+            <datetime>{{ starttime }} - {{ endtime }}</datetime>
+            <datetime style="margin-left: 8px">{{ date }}</datetime>
         </template>
     </Card>
 </template>
 
 <style>
-.title{
+.title {
     overflow: hidden;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    /* 28.8px */
 }
+
 .meeting-card {
     border-radius: 11.25px;
     background: #F9F9F9;

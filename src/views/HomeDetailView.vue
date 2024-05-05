@@ -1,6 +1,12 @@
 <script setup>
 import MeetingTab from '@/components/MeetingTab.vue';
 import MeetingNotes from '@/components/MeetingNotes.vue'
+import { useRouter, useRoute } from 'vue-router'
+const router = useRouter();
+const route = useRoute();
+function directTo(page) {
+      router.push("/meeting/" + page);
+}
 </script>
 
 <script>
@@ -25,11 +31,14 @@ export default {
   <div class="content">
     <div class="left-column">
       <div v-for="(fixture, id) in fixtures.meetings">
-            <MeetingTab :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :date="fixture.date" @click="directTo(id)" href="/meeting_key" />\
+            <MeetingTab :class="fixture.id == $route.params.meeting_key ? 'active-tab' : 'inactive-tab'" :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :date="fixture.date" @click="directTo(id)" href="/meeting_key" />\
         </div>
     </div>
-    <div class="right-column">
-      <MeetingNotes />
+    <div v-for="(fixture, id) in fixtures.meetings" class="right-column">
+      <div v-if="fixture.id == $route.params.meeting_key">
+        <MeetingNotes :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :participants="fixture.participants"
+              :description="fixture.summary" :dateyear="fixture['date-year']" :transcript="fixture.transcript.dialogue"/>
+      </div>
     </div>
   </div>
 </template>
@@ -38,8 +47,7 @@ export default {
 .content {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  column-gap: 2vh;
+  justify-content: space-between;
   padding-right: 30px;
   padding-left: 30px;
 }
@@ -51,4 +59,8 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
+.active-tab {
+      background-color: #E2DCFF;
+    }
 </style>

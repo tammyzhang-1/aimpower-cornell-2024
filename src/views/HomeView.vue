@@ -7,7 +7,7 @@ const route = useRoute();
 import Card from 'primevue/card';
 
 function directTo(page) {
-      router.push("/meeting/" + page);
+  router.push("/meeting/" + page);
 }
 </script>
 
@@ -29,11 +29,22 @@ function directTo(page) {
       </Card>
     </div>
     <div class="center-column">
-      <div v-for="(fixture, id) in fixtures.meetings">
-            <MeetingCard :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :participants="fixture.participants"
-              :description="fixture.summary" @click="directTo(id)" href="/meeting_key" />\
+      <div id="filters">
+        <span>Today</span>
+        <div>
+          <Button id="all-filter" label="All" />
+          <Button id="saved-filter" label="Saved" />
         </div>
       </div>
+      <div v-for="(fixture, id) in fixtures.meetings">
+        <div class="date" v-if="id != fixtures.meetings[1]" style="margin-bottom: 12px;">
+        <span>{{fixture['date']}}</span>
+        </div>
+        <MeetingCard :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']"
+          :participants="fixture.participants" :description="fixture.summary" @click="directTo(id)"
+          href="/meeting_key" />\
+      </div>
+    </div>
     <div class="right-column">
       <Card class="discussion-card">
         <template #title>
@@ -128,5 +139,37 @@ function directTo(page) {
   margin-top: 33px;
   color: #FFFFFF;
   /* margin-right: 3vw; */
+}
+
+#filters {
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 0.5em;
+  color: gray;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+}
+.date{
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: 0em;
+  text-align: left;
+  color: gray;
+}
+
+#all-filter,
+#saved-filter {
+  background: none;
+  color: gray;
+  border: none;
+  padding: 0.2em;
 }
 </style>

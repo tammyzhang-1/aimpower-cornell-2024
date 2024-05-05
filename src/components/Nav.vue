@@ -2,7 +2,10 @@
 import Menubar from 'primevue/menubar';
 import Avatar from 'primevue/avatar';
 import logo from './icons/logo.vue';
-import { ref } from "vue";
+import { useRoute } from 'vue-router';
+import { ref } from 'vue';
+
+const route = useRoute();
 
 const items = ref([
     {
@@ -18,6 +21,22 @@ const items = ref([
         path : '/about-us'
     }
 ]);
+</script>
+<script>
+export default {
+  methods: {
+    changeBorderColor() {
+      // Change border color to purple when input text is clicked
+      document.querySelector('.search').classList.add('clicked');
+    },
+    resetBorderColor(event) {
+      if (!document.querySelector('.search').contains(event.target)) {
+        // Reset border color to default when mouse clicks outside the input text
+        document.querySelector('.search').classList.remove('clicked');
+      }
+    }
+  }
+}
 </script>
 
 <template>
@@ -42,8 +61,7 @@ const items = ref([
             </template>
             <template #end>
                 <div class="flex align-items-center search-avatar gap-2">
-                    <InputText placeholder="Search" type="text" class="w-8rem sm:w-auto"
-                        style="border-radius:8px; margin-right:163.5px" />
+                    <InputText placeholder="Search" type="text" class="w-8rem sm:w-auto search" style="border-radius:8px; margin-right:163.5px" @click="changeBorderColor"/>
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle"
                         style="margin-right: 8px" />
                     <span class="ml-2">rmt223</span>
@@ -77,5 +95,12 @@ const items = ref([
 .nav-item {
     padding-top: 6px;
     padding-bottom: 6px;
+}
+.active-tab {
+  color: aquamarine;
+}
+
+.inactive-tab {
+  color: grey;
 }
 </style>
