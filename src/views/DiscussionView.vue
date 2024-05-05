@@ -35,9 +35,9 @@
     </div>
     <template v-for="meeting in allMeetings">
       <div id="meeting-block">
-        <span>{{ meeting.date }}</span>
+        <span style="color: gray;">{{ meeting.date }}</span>
       <MeetingCard :meetingCardInfo="meeting.id" class="meeting-card" :title="meeting.title" :starttime="meeting['time-start']" :endtime="meeting['time-end']" :participants="meeting.participants"
-              :description="meeting.summary" @click="directTo(meeting.id)"></MeetingCard>
+              :description="meeting.summary" @click="directTo(meeting.id)" style="max-width: 1000px;"></MeetingCard>
       </div>
     </template>
   </div>

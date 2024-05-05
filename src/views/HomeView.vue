@@ -30,19 +30,16 @@ function directTo(page) {
     </div>
     <div class="center-column">
       <div id="filters">
-        <span>Today</span>
         <div>
           <Button id="all-filter" label="All" />
           <Button id="saved-filter" label="Saved" />
         </div>
       </div>
-      <div v-for="(fixture, id) in fixtures.meetings">
-        <!-- <div class="date" v-if="id != fixtures.meetings[1]" style="margin-bottom: 12px;">
-        <span>{{fixture['date']}}</span>
-        </div> -->
+      <div v-for="(fixture, id) in fixtures.meetings" class="meeting-block">
+        <span style="color: gray;">{{fixture['date']}}</span>
         <MeetingCard :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']"
           :participants="fixture.participants" :description="fixture.summary" @click="directTo(id)"
-          href="/meeting_key" />\
+          href="/meeting_key"  style="margin-bottom: 20px;"/>
       </div>
     </div>
     <div class="right-column">
@@ -95,6 +92,11 @@ function directTo(page) {
   align-items: center;
 }
 
+/* .center-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
 .content {
   display: flex;
   flex-direction: row;
@@ -147,6 +149,7 @@ function directTo(page) {
   top: 0;
   right: 0;
   display: flex;
+  justify-content: flex-end;
   gap: 0.5em;
   color: gray;
   font-family: "Source Sans Pro", sans-serif;
@@ -172,4 +175,9 @@ function directTo(page) {
   border: none;
   padding: 0.2em;
 }
+
+/* .meeting-block{
+  display: flex;
+  flex-direction: column-reverse;
+} */
 </style>
