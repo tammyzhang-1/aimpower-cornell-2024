@@ -37,9 +37,9 @@ function directTo(page) {
         </div>
       </div>
       <div v-for="(fixture, id) in fixtures.meetings">
-        <div class="date" v-if="id != fixtures.meetings[1]" style="margin-bottom: 12px;">
+        <!-- <div class="date" v-if="id != fixtures.meetings[1]" style="margin-bottom: 12px;">
         <span>{{fixture['date']}}</span>
-        </div>
+        </div> -->
         <MeetingCard :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']"
           :participants="fixture.participants" :description="fixture.summary" @click="directTo(id)"
           href="/meeting_key" />\
