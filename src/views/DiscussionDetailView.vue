@@ -168,9 +168,9 @@ export default {
     .reverse {
       display: flex;
       flex-direction: column-reverse;
-      justify-content: flex-start;
-      align-items: flex-start;
-      align-content: flex-start;
+      justify-content: flex-end;
+      align-items: flex-end;
+      align-content: flex-end;
     }
 
 </style>

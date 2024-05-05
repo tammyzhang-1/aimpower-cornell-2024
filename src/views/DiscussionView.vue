@@ -34,9 +34,11 @@
       <Button id="saved-filter" label="Saved" />
     </div>
     <template v-for="meeting in allMeetings">
-      <span>{{ meeting.date }}</span>
+      <div id="meeting-block">
+        <span>{{ meeting.date }}</span>
       <MeetingCard :meetingCardInfo="meeting.id" class="meeting-card" :title="meeting.title" :starttime="meeting['time-start']" :endtime="meeting['time-end']" :participants="meeting.participants"
               :description="meeting.summary" @click="directTo(meeting.id)"></MeetingCard>
+      </div>
     </template>
   </div>
 </template>
@@ -47,6 +49,9 @@
     width: fit-content;
     margin: auto;
     padding-top: 1em;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   #filters {
@@ -63,4 +68,9 @@
     border: none;
     padding: 0.2em;
   } 
+
+  #meeting-block {
+    display: block;
+    margin-bottom: 1.5em;
+  }
 </style>
