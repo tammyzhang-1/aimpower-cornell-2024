@@ -13,3 +13,21 @@ html, main, body, #app {
   font-family: "Source Sans 3", sans-serif;
 }
 
+.p-dropdown-panel {
+  display: flex !important;
+  color: #6B4EFF !important;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: #E2DCFF;
+}
+.p-dropdown{
+  width: 55% !important;
+}
+
+.p-dropdown:not(.p-disabled).p-focus {
+  outline: 1px solid #94a3b8;
+  outline-offset: -1px;
+  box-shadow: none;
+  border-color: #94a3b8;
+}
+

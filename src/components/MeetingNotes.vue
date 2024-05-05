@@ -1,5 +1,6 @@
 <script setup>
 import BackButton from '@/components/icons/BackButton.vue';
+import 'primeicons/primeicons.css';
 import AvatarLady from 'primevue/avatar';
 import avatar from './icons/avatar.vue';
 import CalendarIcon from './icons/CalendarIcon.vue';
@@ -8,6 +9,14 @@ import { ref } from "vue";
 import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
+const selectedPost = ref();
+// const cities = ref([
+//     { name: 'New York', code: 'NY' },
+//     { name: 'Rome', code: 'RM' },
+//     { name: 'London', code: 'LDN' },
+//     { name: 'Istanbul', code: 'IST' },
+//     { name: 'Paris', code: 'PRS' }
+// ]);
 defineProps({
     title: String,
     subtitle: String,
@@ -18,17 +27,8 @@ defineProps({
     meetingCardInfo: Object,
     dateyear: String,
     transcript: Array,
-    timestamp: Number, 
-    post: Boolean
+    timestamp: Number
 })
-const selectedCity = ref('');
-const cities = ref([
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' }
-]);
 function timestampToTimeString(timestamp) {
     const date = new Date(timestamp);
     const hours = date.getHours();
@@ -44,7 +44,7 @@ function getParticipantCount(participants) {
 }
 
 const visible = ref(false);
-function setDialogue(title,page){
+function setDialogue(title, page) {
     if (title == "Product Development Team Meeting") {
         visible.value = true;
     }
@@ -56,12 +56,13 @@ function setDialogue(title,page){
 
 
 function goTo(page) {
-      router.push("/discussion/" + page);
+    router.push("/discussion/" + page);
 }
 
 function setHome() {
     router.push("/");
 }
+
 </script>
 
 
@@ -70,17 +71,19 @@ function setHome() {
         <template #title>
             <div class="meeting-title">
                 <div class="heading">
-                    <BackButton @click="setHome()"/>
+                    <BackButton @click="setHome()" />
                     <span class="title">{{ title }}</span>
                 </div>
                 <div>
-                    <Button :href="href" label="Discussion Forum" class="w-100 button" @click="setDialogue(title,meetingCardInfo)" />
+                    <Button :href="href" label="Discussion Forum" class="w-100 button"
+                        @click="setDialogue(title, meetingCardInfo)" />
                     <Dialog v-model:visible="visible" modal header="Send Invitation" class="font-bold w-6rem">
-                    <p style="margin-top:0; font-weight: semibold">Would you like to send invitation emails to all participants?</p>
-                    <div class="button-container">
-                        <Button link style="color: gray;">Don't Send</Button>
-                        <Button link style="color: #6B4EFF" @click="goTo(meetingCardInfo)">Send</Button>
-                    </div>
+                        <p style="margin-top:0; font-weight: semibold">Would you like to send invitation emails to all
+                            participants?</p>
+                        <div class="button-container">
+                            <Button link style="color: gray;">Don't Send</Button>
+                            <Button link style="color: #6B4EFF" @click="goTo(meetingCardInfo)">Send</Button>
+                        </div>
                     </Dialog>
                 </div>
             </div>
@@ -117,8 +120,9 @@ function setHome() {
                 font-weight: 600;
                 line-height: normal;">Transcript</span>
                 <div class="card flex justify-content-center" style="margin-top: 20px;">
-                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name"
-                        placeholder="Select a post from discussion forum ..." class="w-full md:w-14rem" />
+                    <Dropdown v-model="selectedPost" :options="cities" optionLabel="name"
+                        placeholder="Select a post from Discussion Forum ..." class="w-full md:w-14rem">
+                    </Dropdown>
                 </div>
                 <div class="transcript" v-for="dialogueitem in transcript">
                     <div class="user-info">
