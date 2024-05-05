@@ -176,7 +176,7 @@ function directTo(page) {
   padding: 0.2em;
 }
 
-/* .meeting-block{
+/* .meeting{
   display: flex;
   flex-direction: column-reverse;
 } */
