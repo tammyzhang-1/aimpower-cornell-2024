@@ -25,6 +25,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <template>
@@ -39,7 +40,7 @@ export default {
     <div v-for="(fixture, id) in fixtures.meetings" class="right-column">
       <div v-if="fixture.id == $route.params.meeting_key">
         <MeetingNotes :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :participants="fixture.participants"
-              :description="fixture.summary" :dateyear="fixture['date-year']" :transcript="fixture.transcript.dialogue"/>
+              :description="fixture.summary" :dateyear="fixture['date-year']" :transcript="fixture.transcript.dialogue" :meetingCardInfo="fixture.id"></MeetingNotes>
       </div>
     </div>
   </div>

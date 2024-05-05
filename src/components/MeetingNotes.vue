@@ -5,6 +5,9 @@ import avatar from './icons/avatar.vue';
 import CalendarIcon from './icons/CalendarIcon.vue';
 import Dropdown from 'primevue/dropdown';
 import { ref } from "vue";
+import { useRoute, useRouter } from 'vue-router';
+const route = useRoute();
+const router = useRouter();
 defineProps({
     title: String,
     subtitle: String,
@@ -15,7 +18,8 @@ defineProps({
     meetingCardInfo: Object,
     dateyear: String,
     transcript: Array,
-    timestamp: Number
+    timestamp: Number, 
+    post: Boolean
 })
 const selectedCity = ref('');
 const cities = ref([
@@ -40,7 +44,24 @@ function getParticipantCount(participants) {
 }
 
 const visible = ref(false);
+function setDialogue(title,page){
+    if (title == "Product Development Team Meeting") {
+        visible.value = true;
+    }
+    else {
+        console.log(page)
+        goTo(page)
+    }
+}
 
+
+function goTo(page) {
+      router.push("/discussion/" + page);
+}
+
+function setHome() {
+    router.push("/");
+}
 </script>
 
 
@@ -49,16 +70,16 @@ const visible = ref(false);
         <template #title>
             <div class="meeting-title">
                 <div class="heading">
-                    <BackButton />
+                    <BackButton @click="setHome()"/>
                     <span class="title">{{ title }}</span>
                 </div>
                 <div>
-                    <Button :href="href" label="Create Discussion Forum" class="w-100 button" @click="visible = true" />
+                    <Button :href="href" label="Discussion Forum" class="w-100 button" @click="setDialogue(title,meetingCardInfo)" />
                     <Dialog v-model:visible="visible" modal header="Send Invitation" class="font-bold w-6rem">
                     <p style="margin-top:0; font-weight: semibold">Would you like to send invitation emails to all participants?</p>
                     <div class="button-container">
                         <Button link style="color: gray;">Don't Send</Button>
-                        <Button link style="color: #6B4EFF">Send</Button>
+                        <Button link style="color: #6B4EFF" @click="goTo(meetingCardInfo)">Send</Button>
                     </div>
                     </Dialog>
                 </div>
@@ -95,6 +116,10 @@ const visible = ref(false);
                 font-style: normal; 
                 font-weight: 600;
                 line-height: normal;">Transcript</span>
+                <div class="card flex justify-content-center" style="margin-top: 20px;">
+                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name"
+                        placeholder="Select a post from discussion forum ..." class="w-full md:w-14rem" />
+                </div>
                 <div class="transcript" v-for="dialogueitem in transcript">
                     <div class="user-info">
                         <avatar />
@@ -103,10 +128,6 @@ const visible = ref(false);
                             timestampToTimeString(dialogueitem.timestamp) }}</datetime>
                     </div>
                     <p class="description" style="margin: 0;">{{ dialogueitem.message }}</p>
-                </div>
-                <div class="card flex justify-content-center" style="margin-top: 20px;">
-                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name"
-                        placeholder="Select a post from discussion forum ..." class="w-full md:w-14rem" />
                 </div>
             </div>
         </template>
