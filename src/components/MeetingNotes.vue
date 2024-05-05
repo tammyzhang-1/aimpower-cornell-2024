@@ -1,5 +1,6 @@
 <script setup>
 import BackButton from '@/components/icons/BackButton.vue';
+import 'primeicons/primeicons.css';
 import AvatarLady from 'primevue/avatar';
 import avatar from './icons/avatar.vue';
 import CalendarIcon from './icons/CalendarIcon.vue';
@@ -8,15 +9,14 @@ import { ref } from "vue";
 import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
-
-const selectedCity = ref();
-const cities = ref([
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' }
-]);
+const selectedPost = ref();
+// const cities = ref([
+//     { name: 'New York', code: 'NY' },
+//     { name: 'Rome', code: 'RM' },
+//     { name: 'London', code: 'LDN' },
+//     { name: 'Istanbul', code: 'IST' },
+//     { name: 'Paris', code: 'PRS' }
+// ]);
 defineProps({
     title: String,
     subtitle: String,
@@ -27,8 +27,7 @@ defineProps({
     meetingCardInfo: Object,
     dateyear: String,
     transcript: Array,
-    timestamp: Number,
-    post: Boolean
+    timestamp: Number
 })
 function timestampToTimeString(timestamp) {
     const date = new Date(timestamp);
@@ -63,6 +62,7 @@ function goTo(page) {
 function setHome() {
     router.push("/");
 }
+
 </script>
 
 
@@ -120,8 +120,9 @@ function setHome() {
                 font-weight: 600;
                 line-height: normal;">Transcript</span>
                 <div class="card flex justify-content-center" style="margin-top: 20px;">
-                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name"
-                        placeholder="Select a post from Discussion Forum ..." class="w-full md:w-14rem" />
+                    <Dropdown v-model="selectedPost" :options="cities" optionLabel="name"
+                        placeholder="Select a post from Discussion Forum ..." class="w-full md:w-14rem">
+                    </Dropdown>
                 </div>
                 <div class="transcript" v-for="dialogueitem in transcript">
                     <div class="user-info">
