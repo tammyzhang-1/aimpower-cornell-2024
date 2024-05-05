@@ -28,55 +28,15 @@
                         "post-author": "user-1",
                         "post-datetime": 1713535800,
                         "post-time": "10:10 am",
-                        "post-title": "My Thoughts On The Brand Color",
+                        "post-title": "A Few Thoughts I Didn't Have Time to Share Today",
                         "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
                         "reactions": [
                             "love"
                         ],
-                        "replies": {
-                            "04-19-2024-reply-1": {
-                                "reply-id": "04-19-2024-reply-1",
-                                "reply-author": "user-1",
-                                "reply-to": "04-19-2024-post-1",
-                                "reply-level": 1,
-                                "reply-datetime": 1713536400,
-                                "reply-time": "10:20 am",
-                                "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
-                                "reactions": [
-                                    "like"
-                                ]
-                            },
-                            "04-19-2024-reply-2": {
-                                "reply-id": "04-19-2024-reply-2",
-                                "reply-to": "04-19-2024-reply-1",
-                                "reply-level": 2,
-                                "reply-author": "user-2",
-                                "reply-datetime": 1713536580,
-                                "reply-time": "10:23 am",
-                                "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
-                            }
-                        }
-                    }
-                },
-                "replies": {
-                    "04-19-2024-reply-1": {
-                        "reply-id": "04-19-2024-reply-1",
-                        "reply-author": "user-1",
-                        "reply-to": "04-19-2024-post-1",
-                        "reply-datetime": 1713536400,
-                        "reply-time": "10:20 am",
-                        "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
-                        "reactions": [
-                            "like"
+                        "replies": [
+
                         ]
-                    },
-                    "04-19-2024-reply-2": {
-                        "reply-id": "04-19-2024-reply-2",
-                        "reply-to": "04-19-2024-reply-1",
-                        "reply-author": "user-2",
-                        "reply-datetime": 1713536580,
-                        "reply-time": "10:23 am",
-                        "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
+                        
                     }
                 }
             }, 
@@ -137,8 +97,8 @@
                         "reactions": [
                             "love"
                         ],
-                        "replies": {
-                            "04-20-2024-reply-1": {
+                        "replies": [
+                            {
                                 "reply-id": "04-20-2024-reply-1",
                                 "reply-author": "user-1",
                                 "reply-to": "04-20-2024-post-1",
@@ -150,7 +110,7 @@
                                     "like"
                                 ]
                             },
-                            "04-20-2024-reply-2": {
+                            {
                                 "reply-id": "04-20-2024-reply-2",
                                 "reply-to": "04-20-2024-reply-1",
                                 "reply-level": 2,
@@ -159,11 +119,11 @@
                                 "reply-time": "10:23 am",
                                 "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
                             }
-                        }
+                        ]
                     }
                 },
-                "replies": {
-                    "04-20-2024-reply-1": {
+                "replies": [
+                    {
                         "reply-id": "04-20-2024-reply-1",
                         "reply-author": "user-1",
                         "reply-to": "04-20-2024-post-1",
@@ -174,7 +134,7 @@
                             "like"
                         ]
                     },
-                    "04-20-2024-reply-2": {
+                    {
                         "reply-id": "04-20-2024-reply-2",
                         "reply-to": "04-20-2024-reply-1",
                         "reply-author": "user-2",
@@ -182,7 +142,7 @@
                         "reply-time": "10:23 am",
                         "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
                     }
-                }
+                ]
             }, 
             "transcript": {
                 "id": "04-20-2024-meeting-2",
