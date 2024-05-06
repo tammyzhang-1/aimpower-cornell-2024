@@ -1,104 +1,61 @@
 <script setup>
     import Avatar from 'primevue/avatar';
     import Button from 'primevue/button';
-    import Reply from './Reply.vue';
     import HearMyVoiceFlair from './icons/HearMyVoiceFlair.vue';
-    import CreateReply from './CreateReply.vue';
-    import { ref } from 'vue';
 
     const props = defineProps({
         postInfo: Object
     });
 
+    const emits = defineEmits(['like', 'reply']);
+
+    const submitReply = () => {
+        emits('reply', props.postInfo['id']); 
+    };
+
     console.log(props.postInfo)
-
-    const liked = ref(false);
-    const editingReply = ref(false);
-    const newReplies = ref([]);
-    const replyCount = ref(0);
-
-    function setHome() {
-        editingReply.value = false;
-    }
-
-    function createReply(content) {
-        editingReply.value = false;
-        replyCount.value += 1;
-        console.log(content)
-        newReplies.value.push(
-            {
-                "reply-id": "04-19-2024-reply-1",
-                "reply-author": "user-1",
-                "reply-to": props.postInfo['post-id'],
-                "reply-level": 1,
-                "reply-datetime": Date.now(),
-                "reply-time": "10:20 am",
-                "content": content,
-                "reactions": []
-            }
-        )
-        newReplies.value.forEach(reply =>
-            props.postInfo.replies.push(reply));
-        
-    }
 </script>
 
 <script>
   export default {
-    computed: {
-        allComments() {
-            console.log(this)
-            // this.postInfo.replies = this.newReplies;
-            console.log(Object.keys(this.postInfo.replies).length)
-
-            console.log(this.postInfo)
-            return this.postInfo
-        },
-        commentCounter() {
-            return Object.keys(this.postInfo.replies).length.toString();
-        }
-    },
     methods: {
         getUserInfo(userId) {
             return this.fixtures.users[userId].name;
+        },
+        getOffset() {
+            return this.postInfo["level"] * 3 + 'em';
         }
     }
   }
 </script>
 
 <template>
-    <div id="post">
+    <div id="post" v-bind:style="{marginLeft: getOffset()}">
         <Avatar class="profile-img" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle"/>
         <Button id="more-post-actions" label="..."/>
 
         <div id="post-main">
             <div id="post-info">
-                <span id="poster-username">{{ getUserInfo(postInfo['post-author']) }}</span>
+                <span id="poster-username">{{ getUserInfo(postInfo['author']) }}</span>
                 <span class="divider">·</span>
-                <span id="post-timestamp">{{ postInfo['post-time'] }}</span>
+                <span id="post-timestamp">{{ postInfo['time'] }}</span>
                 <HearMyVoiceFlair v-if="postInfo.flaired" />
             </div>
-            <span v-if="postInfo['post-title']" id="post-banner">
-                <h2 id="title">{{ postInfo['post-title'] }}</h2>  
+            <span v-if="postInfo['title']" id="post-banner">
+                <h2 id="title">{{ postInfo['title'] }}</h2>  
             </span>
             <p class="post-content" v-html=" postInfo.content "></p>
             <div id="post-reactions">
                 <Button id="love-react" class="inactive post-reaction" 
-                    @click="liked = !liked"
+                    
                     :icon="liked ? 'pi pi-heart-fill' : 'pi pi-heart'" :label="liked ? '1' : '0'" />
                 <Button id="reply-react" class="post-reaction" 
-                    @click="editingReply = !editingReply"
-                    icon="pi pi-comment" :label="replyCount.toString()" />
+                    @click="submitReply"
+                    icon="pi pi-comment" :label="postInfo['reply-counter'].toString()" />
             </div>
         </div>
     </div>
-    <CreateReply @cancel="setHome" @submit="(content) => createReply(content)" v-if="editingReply" />
-    <template v-for="reply in postInfo['replies']">
-        <Reply 
-          :replyInfo="reply"
-        />
-    </template>
-    <span v-if="allComments"></span>
+
 </template>
 
 <style scoped>

@@ -21,25 +21,22 @@
             ],
             "title": "AI Generative Study Team Meeting",
             "summary": "Roxanne Tanenbaum asked the panelists about their biggest challenges and frustrations in user research. Sam struggled with getting users to open up, while Amy discussed the difficulties of conducting research in a remote setting.",
-            "posts": {
-                "main-posts": {
-                    "main-post-1": {
-                        "post-id": "04-19-2024-post-1",
-                        "post-author": "user-1",
-                        "post-datetime": 1713535800,
-                        "post-time": "10:10 am",
-                        "post-title": "A Few Thoughts I Didn't Have Time to Share Today",
-                        "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
-                        "reactions": [
-                            "love"
-                        ],
-                        "replies": [
-
-                        ]
-                        
-                    }
+            "posts": [
+                {
+                    "id":"04-19-2024-post-1",
+                    "main-post-id": "04-19-2024-post-1",
+                    "meeting": "04-19-2024-meeting-1",
+                    "flaired": false,
+                    "author": "user-1",
+                    "datetime": 1713535800,
+                    "time": "10:10 am",
+                    "title": "A Few Thoughts I Didn't Have Time to Share Today",
+                    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
+                    "reply-to": "",
+                    "level": 0,
+                    "reply-counter": 0
                 }
-            }, 
+            ],
             "transcript": {
                     "id": "04-19-2024-meeting-1",
                     "dialogue": [
@@ -85,65 +82,48 @@
             ],
             "title": "Employee Research Team Meeting",
             "summary": "Abhiram Pulipati and Joe Sunil discussed the importance of conducting research in a remote setting. Harsh and Sahil discussed the difficulties of conducting research in a remote setting.",
-            "posts": {
-                "main-posts": {
-                    "main-post-1": {
-                        "post-id": "04-20-2024-post-1",
-                        "post-author": "user-1",
-                        "post-datetime": 1713535800,
-                        "post-time": "10:10 am",
-                        "post-title": "My Thoughts On The Diary Study",
-                        "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
-                        "reactions": [
-                            "love"
-                        ],
-                        "replies": [
-                            {
-                                "reply-id": "04-20-2024-reply-1",
-                                "reply-author": "user-1",
-                                "reply-to": "04-20-2024-post-1",
-                                "reply-level": 1,
-                                "reply-datetime": 1713536400,
-                                "reply-time": "10:20 am",
-                                "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
-                                "reactions": [
-                                    "like"
-                                ]
-                            },
-                            {
-                                "reply-id": "04-20-2024-reply-2",
-                                "reply-to": "04-20-2024-reply-1",
-                                "reply-level": 2,
-                                "reply-author": "user-2",
-                                "reply-datetime": 1713536580,
-                                "reply-time": "10:23 am",
-                                "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
-                            }
-                        ]
-                    }
+            "posts": [
+                {
+                    "id":"04-20-2024-post-1",
+                    "main-post-id": "04-20-2024-post-1",
+                    "meeting": "04-20-2024-meeting-2",
+                    "flaired": false,
+                    "author": "user-1",
+                    "datetime": 1713535800,
+                    "time": "10:10 am",
+                    "title": "My Thoughts On The Diary Study",
+                    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
+                    "reply-to": "",
+                    "level": 0,
+                    "reply-counter": 1
                 },
-                "replies": [
-                    {
-                        "reply-id": "04-20-2024-reply-1",
-                        "reply-author": "user-1",
-                        "reply-to": "04-20-2024-post-1",
-                        "reply-datetime": 1713536400,
-                        "reply-time": "10:20 am",
-                        "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
-                        "reactions": [
-                            "like"
-                        ]
-                    },
-                    {
-                        "reply-id": "04-20-2024-reply-2",
-                        "reply-to": "04-20-2024-reply-1",
-                        "reply-author": "user-2",
-                        "reply-datetime": 1713536580,
-                        "reply-time": "10:23 am",
-                        "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat."
-                    }
-                ]
-            }, 
+                {
+                    "id":"04-20-2024-reply-1",
+                    "main-post-id": "04-20-2024-post-1",
+                    "meeting": "04-20-2024-meeting-2",
+                    "flaired": false,
+                    "author": "user-1",
+                    "datetime": 1713536400,
+                    "time": "10:20 am",
+                    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
+                    "reply-to": "04-20-2024-post-1",
+                    "level": 1,
+                    "reply-counter": 1
+                },
+                {
+                    "id":"04-20-2024-reply-2",
+                    "main-post-id": "04-20-2024-post-1",
+                    "meeting": "04-20-2024-meeting-2",
+                    "flaired": false,
+                    "author": "user-2",
+                    "datetime": 1713536580,
+                    "time": "10:23 am",
+                    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam volutpat et arcu sit a molestie et turpis. Duis imperdiet elementum lorem auctor risus morbi tellus. Nibh tempus egestas pulvinar et ut sagittis tempus. Euismod sit nulla tempus massa volutpat.",
+                    "reply-to": "04-20-2024-reply-1",
+                    "level": 2,
+                    "reply-counter": 0
+                }
+            ], 
             "transcript": {
                 "id": "04-20-2024-meeting-2",
                 "dialogue": [
@@ -201,7 +181,8 @@
             ],
             "title": "Product Development Team Meeting",
             "summary": "Sam and Britney discussed the importance of conducting research in a remote setting. Sam and Andrew discussed the difficulties of conducting research in a remote setting.",
-            "transcript":{
+            "posts": [],
+            "transcript": {
                 "id": "04-21-2024-meeting-3",
                 "dialogue": [
                     {
