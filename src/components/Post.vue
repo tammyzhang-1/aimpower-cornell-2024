@@ -23,7 +23,7 @@
             return this.fixtures.users[userId].name;
         },
         getOffset() {
-            return this.postInfo["level"] * 3 + 'em';
+            return this.postInfo["level"] * 4 + 'em';
         }
     }
   }
