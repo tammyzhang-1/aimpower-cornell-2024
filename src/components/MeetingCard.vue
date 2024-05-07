@@ -39,7 +39,7 @@ function directTo(page) {
             <span class="participants">{{ getParticipants(participants) }}</span>
         </div>
              <br>
-            <span class="description">{{description}}</span>
+            <span class="serif description">{{description}}</span>
         </template>
     </Card>
 </template>
@@ -67,7 +67,7 @@ function directTo(page) {
 
 .participants {
     color: #000;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Source Sans 3", sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -77,7 +77,6 @@ function directTo(page) {
 .description {
     color: #000;
     /* Body Text/Source Serif Pro/16/Regular */
-    font-family: serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

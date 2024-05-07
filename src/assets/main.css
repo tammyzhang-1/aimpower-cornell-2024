@@ -13,6 +13,14 @@ html, main, body, #app {
   font-family: "Source Sans 3", sans-serif;
 }
 
+.sans-serif {
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.serif {
+  font-family: "Source Serif 4", serif;
+}
+
 .p-dropdown-panel {
   display: flex !important;
   color: #6B4EFF !important;

@@ -12,7 +12,7 @@ defineProps({
 <template>
     <Card class="meeting-card"> 
         <template #title>
-            <span class="title">{{ title }}</span>
+            <span class="sans-serif title">{{ title }}</span>
         </template>
         <template #subtitle>
             <datetime>{{ starttime }} - {{ endtime }}</datetime>
@@ -24,8 +24,8 @@ defineProps({
 <style>
 .title {
     overflow: hidden;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 20px;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: 120%;

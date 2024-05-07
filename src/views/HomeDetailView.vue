@@ -31,17 +31,20 @@ export default {
 <template>
   <div class="content">
     <div class="left-column">
-    <div class="reverse">
-      <div v-for="(fixture, id) in fixtures.meetings">
-            <MeetingTab :class="fixture.id == $route.params.meeting_key ? 'active-tab' : 'inactive-tab'" :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :date="fixture.date" @click="directTo(id)" href="/meeting_key" />\
+    <div id="meeting-tab-container" class="reverse">
+      <div  v-for="(fixture, id) in fixtures.meetings">
+            <MeetingTab :class="fixture.id == $route.params.meeting_key ? 'active-tab' : 'inactive-tab'" :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :date="fixture.date" @click="directTo(id)" href="/meeting_key" />
         </div>
     </div>
     </div>
-    <div v-for="(fixture, id) in fixtures.meetings" class="right-column">
+    <div class="right-column">
+      <template v-for="(fixture, id) in fixtures.meetings">
       <div v-if="fixture.id == $route.params.meeting_key">
         <MeetingNotes :title="fixture.title" :starttime="fixture['time-start']" :endtime="fixture['time-end']" :participants="fixture.participants"
               :description="fixture.summary" :dateyear="fixture['date-year']" :transcript="fixture.transcript.dialogue" :meetingCardInfo="fixture.id"/>
-      </div>
+      
+            </div>
+      </template>
     </div>
   </div>
 </template>
@@ -51,6 +54,10 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  column-gap: 2vh;
   padding-right: 30px;
   padding-left: 30px;
 }
@@ -66,4 +73,22 @@ export default {
 .active-tab {
       background-color: #E2DCFF;
     }
+
+  #meeting-tab-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    row-gap: 2vh;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .reverse {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    row-gap: 2vh;
+    align-items: center;
+    flex-grow: 1;
+  }
 </style>

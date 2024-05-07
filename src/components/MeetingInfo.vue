@@ -49,7 +49,7 @@ export default {
     }
 
     #meeting-info p {
-        font-family: "Source Serif Pro", serif;
+        font-family: "Source Serif 4", serif;
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
